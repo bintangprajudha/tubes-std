@@ -73,6 +73,17 @@ void DeleteLastDokter(ListDokter &LD, adr_dokter &P);
 void showDokter(ListDokter LD);
 adr_dokter FindDokter(ListDokter LD, string id, string nama, string spesialisasi);
 
+// procedure Child
+
+void createListPasien(ListPasien &LP);
+adr_pasien createElmPasien(Pasien C);
+void insertLastPasien(ListPasien &LP, adr_pasien P);
+void deleteFirstPasien(ListPasien &LP, adr_pasien &P);
+adr_pasien FindPasien(ListPasien LP, string Nama, string NIK);
+void ShowPasien(ListPasien LP);
+void hitungRelasiPasien(ListDokter LD, ListPasien LP, int &jumRelasi);
+int hitungPasienNoRelasi(ListDokter LD, ListPasien LP);
+
 // procedure relasi
 void createListRelasi(elmRelasi &R);
 void insertLastRelasi(ListDokter &LD, adr_relasi R);
