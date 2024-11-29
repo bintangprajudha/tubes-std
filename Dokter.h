@@ -25,8 +25,8 @@ struct ListDokter {
 };
 void createListDokter(ListDokter &LD);
 adr_dokter createElmDokter(dokter D);
-void insertLastDokter(ListDokter &L, adr_dokter P);
-void DeleteLastDokter(ListDokter &L, adr_dokter &P);
+void insertLastDokter(ListDokter &LD, adr_dokter P);
+void DeleteLastDokter(ListDokter &LD, adr_dokter &P);
 void showDokter(ListDokter LD);
 adr_dokter FindDokter(ListDokter LD, string id, string nama, string spesialisasi);
 #endif // PASIEN_H_INCLUDED
