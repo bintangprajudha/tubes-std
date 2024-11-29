@@ -56,6 +56,9 @@ void showDokterPasienBerelasi(ListDokter LD){
         cout << "Nama Dokter: " << currentDokter->info.nama << endl;
         cout << "Spesialisasi: " << currentDokter->info.spesialisasi << endl;
         cout << "NKD: " << currentDokter->info.NKD << endl;
+        cout << "Jenis Kelamin: " << currentDokter->info.jk << endl;
+        cout << "Umur: " << currentDokter->info.umur << endl;
+        cout << "Nomor Telepon: " << currentDokter->info.nomorHP << endl;
 
         adr_relasi currentRelasi = currentDokter->firstRelasi;
         if (currentRelasi == nullptr) {
@@ -68,6 +71,14 @@ void showDokterPasienBerelasi(ListDokter LD){
                     cout << "- Nama Pasien: " << relatedPasien->info.Nama << endl;
                     cout << "  NIK: " << relatedPasien->info.NIK << endl;
                     cout << "  Jenis Kelamin: " << relatedPasien->info.JenisKelamin << endl;
+                    cout << "  Golongan Darah: " << relatedPasien->info.golonganDarah << endl;
+                    cout << "  Berat: " << relatedPasien->info.berat << endl;
+                    cout << "  Tinggi: " << relatedPasien->info.tinggiBadan << endl;
+                    cout << "  Tempat, Tanggal Lahir: " << relatedPasien->info.TTL << endl;
+                    cout << "  Usia: " << relatedPasien->info.usia << endl;
+                    cout << "  Asuransi Kesehatan: " << relatedPasien->info.asuransiKesehatan << endl;
+                    cout << "  Agama: " << relatedPasien->info.agama << endl;
+                    
                 }
                 currentRelasi = currentRelasi->nextRelasi;
             }
