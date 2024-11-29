@@ -56,10 +56,10 @@ void showDokter(ListDokter LD){
     }
 }
 
-adr_dokter FindDokter(ListDokter LD, string id){
+adr_dokter FindDokter(ListDokter LD, string id, string nama){
     adr_dokter p = LD.first;
     while (p != NULL) {
-        if (p->info.id == id) {
+        if (p->info.id == id && p->info.nama == nama) {
             cout << "Dokter Ditemukan" << endl;
             return p;
         }else {

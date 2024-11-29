@@ -71,7 +71,7 @@ adr_dokter createElmDokter(dokter D);
 void insertLastDokter(ListDokter &LD, adr_dokter P);
 void DeleteLastDokter(ListDokter &LD, adr_dokter &P);
 void showDokter(ListDokter LD);
-adr_dokter FindDokter(ListDokter LD, string id);
+adr_dokter FindDokter(ListDokter LD, string id, string nama);
 
 // procedure Child
 
@@ -92,6 +92,6 @@ adr_relasi findRelasi(ListDokter &LD, string id_dokter, string nik_pasien);
 void showDokterPasienBerelasi(ListDokter LD);
 void showChildParent(ListPasien LP, ListDokter LD);
 adr_relasi deleteAfterRelasi(adr_dokter &dokter, adr_pasien pasienLama);
-void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nik_pasien, string new_nik_pasien);
+void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nama_dokter, string nik_pasien, string new_nik_pasien);
 
 #endif // DOKTER_H_INCLUDED

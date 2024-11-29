@@ -141,8 +141,8 @@ adr_relasi deleteAfterRelasi(adr_dokter &dokter, adr_pasien pasienLama){
     }
 };
 
-void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nik_pasien, string new_nik_pasien){  
-    adr_dokter dokter = FindDokter(LD, id_dokter);
+void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nama_dokter, string nik_pasien, string new_nik_pasien){  
+    adr_dokter dokter = FindDokter(LD, id_dokter, nama_dokter);
     adr_pasien pasienLama = FindPasien(LP, nik_pasien);
     adr_pasien pasienBaru = FindPasien(LP, new_nik_pasien);
 
