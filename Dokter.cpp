@@ -1,4 +1,4 @@
-#include "pasien.h"
+#include "Dokter.h"
 #include <iostream>
 using namespace std;
 
@@ -56,10 +56,10 @@ void showDokter(ListDokter LD){
     }
 }
 
-adr_dokter FindDokter(ListDokter LD, string id, string nama, string spesialisasi){
+adr_dokter FindDokter(ListDokter LD, string id){
     adr_dokter p = LD.first;
     while (p != NULL) {
-        if (p->info.id == id && p->info.nama == nama && p->info.spesialisasi == spesialisasi) {
+        if (p->info.id == id) {
             cout << "Dokter Ditemukan" << endl;
             return p;
         }else {
