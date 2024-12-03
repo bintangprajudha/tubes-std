@@ -33,12 +33,12 @@ void deleteFirstPasien(ListPasien &LP, adr_pasien &P){
     }
 
 }
-adr_pasien FindPasien(ListPasien LP, string NIK){
+adr_pasien FindPasien(ListPasien LP, string NIK, string nama){
     adr_pasien Q;
     bool ketemu = false;
     Q = LP.first;
     while (Q != NULL && !ketemu){
-        if (Q->info.NIK == NIK) {
+        if (Q->info.NIK == NIK && Q->info.Nama == nama) {
             ketemu = true;
             cout << "Pasien Ditemukan" << endl;
             return Q;

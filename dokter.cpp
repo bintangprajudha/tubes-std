@@ -52,6 +52,7 @@ void showDokter(ListDokter LD){
             cout << p->info.umur << endl;
             cout << p->info.NKD << endl;
             cout << p->info.nomorHP << endl;
+            p = p->next;
         }
     }
 }
@@ -70,43 +71,15 @@ adr_dokter FindDokter(ListDokter LD, string id, string nama){
     return NULL;
 }
 
-int menu(){
-    int select;
+//--------------
 
-    cout << "-------------Rumah Sakit Budiman-------------" << endl;
-    cout << "--Pilih Menu--" << endl;
-    cout << "1. Show List Dokter" << endl;
-    cout << "2. Show List Pasien" << endl;
-    cout << "3. Show List Relasi" << endl;
-    cout << "4. Tambahkan Dokter Baru" << endl;
-    cout << "5. Tambahkan Pasien Baru" << endl;
-    cout << "6. Tambahkan relasi Dokter dan Pasien" << endl;
-    cout << "7. Hapus Dokter" << endl;
-    cout << "8. Hapus pasien" << endl;
-    cout << "9. Hapus relasi" << endl;
-    cout << "10. Mencari Dokter" << endl;
-    cout << "11. Mencari Pasien" << endl;
-    cout << "12. Mencari Relasi" << endl;
-    cout << "13. Mencari Pasien Dokter" << endl;
-    cout << "14. Show data Dokter dan Pasiennya" << endl;
-    cout << "15. Show data Pasien dan Dokternya" << endl;
-    cout << "16. Hitung Relasi Dokter" << endl;
-    cout << "17. Hitung Relasi Pasien tertentu" << endl;
-    cout << "18. Hitung pasien yang tidak memiliki dokter" << endl;
-    cout << "19. Edit Relasi" << endl;
-    cout << "0. Exit" << endl;
-    cout << "-----------------------------------------------" << endl;
-
-    cin >> select;
-    return select;
-}
 void showPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter) {
     adr_dokter dokter = FindDokter(LD, id_dokter, nama_dokter);
     if (dokter == nullptr) {
-        cout << "Dokter Tidak Ditemukan << endl;
+        cout << "Dokter Tidak Ditemukan" << endl;
         return;
     }
-    
+
     cout << "Data pasien dari dokter: " << dokter->info.nama << endl;
     cout << "Spesialisasi: " << dokter->info.spesialisasi << endl;
     cout << "=========================================" << endl;
@@ -116,7 +89,7 @@ void showPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter) {
         cout << "Tidak ada pasien yang terkait dengan dokter ini." << endl;
         return;
     }
-    
+
     while (relasi != nullptr) {
         adr_pasien pasien = relasi->firstPasien;
         if (pasien != nullptr) {
@@ -130,8 +103,8 @@ void showPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter) {
     }
 }
 
-void showDokterDariPasien(ListDokter LD, ListPasien LP, string nik_pasien) {
-    adr_pasien pasien = FindPasien(LP, nik_pasien); 
+void showDokterDariPasien(ListDokter LD, ListPasien LP, string nik_pasien, string nama_pasien) {
+    adr_pasien pasien = FindPasien(LP, nik_pasien, nama_pasien);
     if (pasien == nullptr) {
         cout << "Pasien dengan NIK " << nik_pasien << " tidak ditemukan." << endl;
         return;
@@ -180,4 +153,7 @@ int hitungPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter) 
     }
     return totalRelasi;
 }
+
+
+
 

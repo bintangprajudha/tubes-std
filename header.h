@@ -74,7 +74,7 @@ void DeleteLastDokter(ListDokter &LD, adr_dokter &P);
 void showDokter(ListDokter LD);
 adr_dokter FindDokter(ListDokter LD, string id, string nama);
 void showPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter);
-void showDokterDariPasien(ListDokter LD, ListPasien LP, string nik_pasien);
+void showDokterDariPasien(ListDokter LD, ListPasien LP, string nik_pasien, string nama_pasien);
 int hitungPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter);
 
 // procedure Child
@@ -83,20 +83,20 @@ void createListPasien(ListPasien &LP);
 adr_pasien createElmPasien(Pasien C);
 void insertLastPasien(ListPasien &LP, adr_pasien P);
 void deleteFirstPasien(ListPasien &LP, adr_pasien &P);
-adr_pasien FindPasien(ListPasien LP, string NIK);
+adr_pasien FindPasien(ListPasien LP, string NIK, string nama);
 void ShowPasien(ListPasien LP);
 void hitungRelasiPasien(ListDokter LD, ListPasien LP, int &jumRelasi);
 int hitungPasienNoRelasi(ListDokter LD, ListPasien LP);
 
 // procedure relasi
-void createListRelasi(adr_pasien P);
+adr_relasi createElmRelasi(adr_pasien P);
 void insertLastRelasi(adr_dokter &D, adr_relasi R);
-adr_relasi DeleteFirstRelasi(adr_dokter &D, adr_relasi &R);
+adr_relasi deleteFirstRelasi(adr_dokter &D, adr_relasi &R);
 adr_relasi findRelasi(ListDokter &LD, string id_dokter, string nik_pasien);
 void showDokterPasienBerelasi(ListDokter LD);
 void showChildParent(ListPasien LP, ListDokter LD);
 adr_relasi deleteAfterRelasi(adr_dokter &dokter, adr_pasien pasienLama);
-void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nama_dokter, string nik_pasien, string new_nik_pasien);
+void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nama_dokter, string nik_pasien, string nama_pasien_lama, string new_nik_pasien, string nama_pasien_baru);
 
 int menu();
 
