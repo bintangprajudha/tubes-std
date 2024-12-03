@@ -73,6 +73,9 @@ void insertLastDokter(ListDokter &LD, adr_dokter P);
 void DeleteLastDokter(ListDokter &LD, adr_dokter &P);
 void showDokter(ListDokter LD);
 adr_dokter FindDokter(ListDokter LD, string id, string nama);
+void showPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter);
+void showDokterDariPasien(ListDokter LD, ListPasien LP, string nik_pasien);
+int hitungPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter);
 
 // procedure Child
 
