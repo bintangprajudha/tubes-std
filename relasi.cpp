@@ -1,4 +1,4 @@
-#include "Dokter.h"
+#include "header.h"
 
 adr_relasi createElmRelasi(adr_pasien P){
     adr_relasi R = new elmRelasi;
@@ -78,7 +78,7 @@ void showDokterPasienBerelasi(ListDokter LD){
                     cout << "  Usia: " << relatedPasien->info.usia << endl;
                     cout << "  Asuransi Kesehatan: " << relatedPasien->info.asuransiKesehatan << endl;
                     cout << "  Agama: " << relatedPasien->info.agama << endl;
-                    
+
                 }
                 currentRelasi = currentRelasi->nextRelasi;
             }
@@ -152,7 +152,7 @@ adr_relasi deleteAfterRelasi(adr_dokter &dokter, adr_pasien pasienLama){
     }
 };
 
-void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nama_dokter, string nik_pasien, string new_nik_pasien){  
+void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nama_dokter, string nik_pasien, string new_nik_pasien){
     adr_dokter dokter = FindDokter(LD, id_dokter, nama_dokter);
     adr_pasien pasienLama = FindPasien(LP, nik_pasien);
     adr_pasien pasienBaru = FindPasien(LP, new_nik_pasien);
