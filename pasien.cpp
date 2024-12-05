@@ -23,15 +23,35 @@ void insertLastPasien(ListPasien &LP, adr_pasien P){
         Q->next = P;
     }
 }
-void deleteFirstPasien(ListPasien &LP, adr_pasien &P){
-    if (LP.first == NULL){
-        P = NULL;
-    } else {
-        P = LP.first;
-        LP.first = LP.first->next;
-        P->next = NULL;
-    }
+void deleteFirstPasien(ListPasien &LP, ListDokter &LD, adr_pasien &P){
+    adr_dokter d;
+    adr_relasi prevR, nextR;
+    adr_pasien p;
 
+    if (LP.first == NULL) {
+        cout << "List Pasien Kosong" << endl;
+    } else {
+        p = LP.first;
+        d = LD.first;
+        while (d != NULL) {
+            prevR = d->firstRelasi;
+            nextR = d->firstRelasi->nextRelasi;
+            if (d->firstRelasi->firstPasien->info.NIK == p->info.NIK){
+                d->firstRelasi = d->firstRelasi->nextRelasi;
+                prevR->nextRelasi = NULL;
+            }
+            while (nextR != NULL){
+                if (nextR->firstPasien->info.NIK == p->info.NIK) {
+                    prevR->nextRelasi = nextR->nextRelasi;
+                    nextR->nextRelasi = NULL;
+                } else {
+                    prevR = nextR;
+                    nextR = nextR->nextRelasi;
+                }
+            }
+            d = d->next;
+        }
+    }
 }
 adr_pasien FindPasien(ListPasien LP, string NIK, string nama){
     adr_pasien Q;
@@ -70,5 +90,52 @@ void ShowPasien(ListPasien LP){
         }
     }
 }
-void hitungRelasiPasien(ListDokter LD, ListPasien LP, int &jumRelasi);
-int hitungPasienNoRelasi(ListDokter LD, ListPasien LP);
+int hitungRelasiPasien(ListDokter LD, ListPasien LP, string NIK, string nama){
+    int jumRelasi = 0;
+    adr_pasien p;
+    adr_dokter d = LD.first;
+    adr_relasi r;
+    p = FindPasien(LP, NIK, nama);
+    if (p != NULL) {
+        while (d != NULL) {
+            r = d->firstRelasi;
+            while (r != NULL) {
+                if (r->firstPasien->info.NIK == NIK && r->firstPasien->info.Nama == nama) {
+                    jumRelasi++;
+                } else {
+                    r = r->nextRelasi;
+                }
+            }
+            d = d->next;
+        }
+    } else {
+        cout << "Pasien Tidak ditemukan, mohon masukkan data dengan benar:)" << endl;
+    }
+    return jumRelasi;
+}
+int hitungPasienNoRelasi(ListDokter LD, ListPasien LP){
+    int jumNoRelasi = 0;
+    adr_dokter d = LD.first;
+    adr_pasien p = LP.first;
+    adr_relasi r;
+    bool ketemu;
+    while (p != NULL) {
+        ketemu = false;
+        while (d != NULL && !ketemu) {
+            r = d->firstRelasi;
+            while (r != NULL && !ketemu) {
+                if (r->firstPasien->info.NIK == p->info.NIK) {
+                    ketemu = true;
+                } else {
+                    r = r->nextRelasi;
+                }
+            }
+            d = d->next;
+        }
+        if (!ketemu) {
+            jumNoRelasi++;
+        }
+        p = p->next;
+    }
+    return jumNoRelasi;
+}
