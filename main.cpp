@@ -18,67 +18,44 @@ int main()
         switch(select) {
             case 1:
                 // Show List Dokter
+                cout << "~~~~~~~~~~~~~~ Menampilkan List Dokter ~~~~~~~~~~~~~~" << endl;
                 showDokter(LD);
+                cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                 break;
             case 2:
                 // Show List Pasien
+                cout << "~~~~~~~~~~~~~~ Menampilkan List Pasien ~~~~~~~~~~~~~~" << endl;
                 ShowPasien(LP);
+                cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                 break;
-            case 3:
-                // Show List relasi
-                break;
-            case 4: {
+            case 3: {
                 // tambahkan Dokter baru
+                cout << "~~~~~~~~~~~~~~~~~~ Tambahkan Dokter ~~~~~~~~~~~~~~~~~" << endl;
                 dokter D;
                 adr_dokter d;
-                cout << "Menambahkan dokter baru" << endl;
-                cout << "Masukkan ID dokter: ";
-                cin >> D.id;
-                cout << "Masukkan nama dokter: ";
-                cin >> D.nama;
-                cout << "Masukkan spesialisasi dokter: ";
-                cin >> D.spesialisasi;
-                cout << "Masukkan jenis kelamin dokter: ";
-                cin >> D.jk;
-                cout << "Masukkan umur dokter: ";
-                cin >> D.umur;
-                cout << "Masukkan NKD dokter: ";
-                cin >> D.NKD;
-                cout << "Masukkan nomor telepon dokter: ";
-                cin >> D.nomorHP;
 
+                inputDataDokter(D);
                 d = createElmDokter(D);
                 insertLastDokter(LD, d);
+                cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                break;
+            }
+            case 4: {
+                // tambah pasien baru
+                cout << "~~~~~~~~~~~~~~~~~~ Tambahkan Pasien ~~~~~~~~~~~~~~~~~" << endl;
+                Pasien P;
+                adr_pasien p;
+
+                inputDataPasien(P);
+                p = createElmPasien(P);
+                insertLastPasien(LP, p);
+                cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                 break;
             }
             case 5: {
-                // tambah pasien baru
-                Pasien P;
-                adr_pasien p;
-                cout << "Menambahkan pasien baru" << endl ;
-                cout << "Masukkan nama pasien: ";
-                cin >> P.Nama;
-                cout << "Masukkan NIK pasien: ";
-                cin >> P.NIK;
-                cout << "Masukkan jenis kelamin pasien: ";
-                cin >> P.JenisKelamin;
-                cout << "Masukkan jenis golongan darah pasien: ";
-                cin >> P.golonganDarah;
-                cout << "Masukkan berat pasien: ";
-                cin >> P.berat;
-                cout << "Masukkan tinggi pasien: ";
-                cin >> P.NIK;
-                cout << "Apakah pasien memiliki asuransi kesehatan? ";
-                cin >> P.asuransiKesehatan;
-                cout << "Masukkan agama pasien";
-                cin >> P.agama;
-
-                p = createElmPasien(P);
-                insertLastPasien(LP, p);
-                break;
-            }
-            case 6: {
+                cout << "~~~~~~~~~~~ Registrasi pasien dengan dokter ~~~~~~~~~" << endl;
                 // tambahkan relasi dokter dan pasien
+                // sesuai spesialisasi
                 dokter D;
                 adr_dokter d;
                 Pasien P;
@@ -99,186 +76,274 @@ int main()
                 d = FindDokter(LD, D.id, D.nama);
 
                 insertLastRelasi(d, r);
+                cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                break;
+            }
+            case 6: {
+                //hapus elemen
+                select = case6();
+                while (select != 0) {
+                    switch(select) {
+                        case 1: {
+                            //hapus dokter
+                            cout << "~~~~~~~~~~~~~~~~~~~~ Hapus Dokter ~~~~~~~~~~~~~~~~~~~" << endl;
+                            adr_dokter d;
+                            DeleteLastDokter(LD, d);
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 2: {
+                            // hapus pasien
+                            cout << "~~~~~~~~~~~~~~~~~~~~ Hapus Pasien ~~~~~~~~~~~~~~~~~~~" << endl;
+                            adr_pasien p;
+                            deleteFirstPasien(LP, LD, p);
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 3: {
+                            //hapus pasien pada dokter
+                            cout << "~~~~~~~~~~~~~ Hapus Pasien Dari Dokter ~~~~~~~~~~~~~~" << endl;
+                            dokter D;
+                            adr_dokter d;
+                            cout << "Cari dokter" << endl;
+                            cout << "Masukkan nama dokter yang ingin dicari: ";
+                            cin >> D.nama;
+                            cout << "Masukkan ID dokter yang ingin dicari: ";
+                            cin >> D.id;
+                            d = FindDokter(LD, D.id, D.nama);
+
+                            Pasien P;
+                            adr_pasien p;
+
+                            cout << "Cari Pasien" << endl;
+                            cout << "Masukkan nama pasien yang ingin dihapus: ";
+                            cin >> P.Nama;
+                            cout << "Masukkan NIK dokter yang ingin dihapus: ";
+                            cin >> P.NIK;
+                            p = FindPasien(LP, P.NIK, P.Nama);
+
+                            adr_relasi r;
+                            r = deleteAfterRelasi(d, p);
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 4:
+                            break;
+                        case 0:
+                            break;
+                    }
+                    select = case6();
+                }
                 break;
             }
             case 7: {
-                // hapus dokter
-                adr_dokter d;
-                DeleteLastDokter(LD, d);
+                //show data
+                select = case7();
+                while (select != 0) {
+                    switch(select) {
+                        case 1: {
+                            //Show data Dokter dan Pasiennya
+                            cout << "~~~~~~~~~~~ Tampilkan Dokter dan Pasiennya ~~~~~~~~~~" << endl;
+                            showDokterPasienBerelasi(LD);
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 2: {
+                            //Show data Pasien dan Dokternya
+                            cout << "~~~~~~~~~~~ Tampilkan Pasien dan Dokternya ~~~~~~~~~~" << endl;
+                            Pasien P;
+                            adr_pasien p;
+
+                            cout << "Cari Pasien";
+                            cout << "Masukkan nama pasien yang ingin dicari: ";
+                            cin >> P.Nama;
+                            cout << "Masukkan NIK dokter yang ingin dicari: ";
+                            cin >> P.NIK;
+                            showDokterDariPasien(LD, LP, P.NIK, P.Nama);
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 3: {
+                            //show semua data pasien dan dokternya
+                            cout << "~~~~ Tampilkan Semua Data Pasien dan Dokternnya ~~~~~" << endl;
+                            showChildParent(LP, LD);
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 4:
+                            //tampilkan relasi
+                            break;
+                        case 5:
+                            break;
+                        case 0:
+                            break;
+                    }
+                    select = case7();
+                }
                 break;
             }
             case 8: {
-                // hapus pasien
-                adr_pasien p;
-                deleteFirstPasien(LP, p);
+                //cari data
+                select = case8();
+                while (select != 0) {
+                    switch(select) {
+                        case 1: {
+                            //cari dokter
+                            cout << "~~~~~~~~~~~~~~~~~~~~ Cari Dokter ~~~~~~~~~~~~~~~~~~~~" << endl;
+                            dokter D;
+                            adr_dokter d;
+                            cout << "Cari dokter";
+                            cout << "Masukkan nama dokter yang ingin dicari: ";
+                            cin >> D.nama;
+                            cout << "Masukkan ID dokter yang ingin dicari: ";
+                            cin >> D.id;
+                            d = FindDokter(LD, D.id, D.nama);
+
+                            cout << d->info.id << endl;
+                            cout << d->info.nama << endl;
+                            cout << d->info.spesialisasi << endl;
+                            cout << d->info.jk << endl;
+                            cout << d->info.umur << endl;
+                            cout << d->info.NKD << endl;
+                            cout << d->info.nomorHP << endl;
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 2: {
+                            //cari pasien
+                            cout << "~~~~~~~~~~~~~~~~~~~~ Cari Pasien ~~~~~~~~~~~~~~~~~~~~" << endl;
+                            Pasien P;
+                            adr_pasien p;
+
+                            cout << "Cari Pasien";
+                            cout << "Masukkan nama pasien yang ingin dicari: ";
+                            cin >> P.Nama;
+                            cout << "Masukkan NIK dokter yang ingin dicari: ";
+                            cin >> P.NIK;
+                            p = FindPasien(LP, P.NIK, P.Nama);
+
+                            cout << p->info.Nama << endl;
+                            cout << p->info.NIK << endl;
+                            cout << p->info.JenisKelamin << endl;
+                            cout << p->info.golonganDarah<< endl;
+                            cout << p->info.berat << endl;
+                            cout << p->info.tinggiBadan << endl;
+                            cout << p->info.TTL << endl;
+                            cout << p->info.usia << endl;
+                            cout << p->info.asuransiKesehatan << endl;
+                            cout << p->info.agama << endl;
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 3: {
+                            //cari relasi
+                            cout << "~~~~~~~~~~~~~~~~~~~~ Cari Relasi ~~~~~~~~~~~~~~~~~~~~" << endl;
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 4: {
+                            //cari pasien dokter
+                            cout << "~~~~~~~~~~~~~~ Cari Pasien dari Dokter ~~~~~~~~~~~~~~" << endl;
+
+                            dokter D;
+                            adr_dokter d;
+                            cout << "Cari dokter";
+                            cout << "Masukkan nama dokter yang ingin dicari: ";
+                            cin >> D.nama;
+                            cout << "Masukkan ID dokter yang ingin dicari: ";
+                            cin >> D.id;
+
+                            showPasienDariDokter(LD, D.id, D.nama);
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 5:
+                            break;
+                        case 0:
+                            break;
+                    }
+                    select = case8();
+                }
                 break;
             }
-            case 9:{
-                // hapus pasien pada dokter tertentu
-                dokter D;
-                adr_dokter d;
-                cout << "Cari dokter" << endl;
-                cout << "Masukkan nama dokter yang ingin dicari: ";
-                cin >> D.nama;
-                cout << "Masukkan ID dokter yang ingin dicari: ";
-                cin >> D.id;
-                d = FindDokter(LD, D.id, D.nama);
+            case 9: {
+                //menu lainnya
+                select = case9();
+                while (select != 0) {
+                    switch(select) {
+                        case 1: {
+                            //hitung pasien yang dimiliki dokter
+                            cout << "~~~~~~~~~ Hitung Pasien yang dimiliki Dokter ~~~~~~~~" << endl;
+                            dokter D;
+                            adr_dokter d;
+                            cout << "Masukkan nama pasien: ";
+                            cin >> D.nama;
+                            cout << "Masukkan ID pasien: ";
+                            cin >> D.id;
+                            hitungPasienDariDokter(LD, D.id, D.nama);
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 2: {
+                            //hitung dokter yang dimiliki pasien
+                            cout << "~~~~~~~~~ Hitung Dokter yang dimiliki Pasien ~~~~~~~~" << endl;
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 3: {
+                            //hitung pasien yang tidak memiliki dokter
+                            cout << "~~~~~~ Hitung Pasien yang Tidak Memiliki Dokter ~~~~~" << endl;
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 4: {
+                            //ganti pasien pada dokter tertentu
+                            cout << "~~~~~~~~~ Ganti Pasien pada Dokter Tertentu ~~~~~~~~~" << endl;
 
-                Pasien P;
-                adr_pasien p;
+                            dokter D;
+                            Pasien P;
+                            Pasien Pnew;
 
-                cout << "Cari Pasien" << endl;
-                cout << "Masukkan nama pasien yang ingin dihapus: ";
-                cin >> P.Nama;
-                cout << "Masukkan NIK dokter yang ingin dihapus: ";
-                cin >> P.NIK;
-                p = FindPasien(LP, P.NIK, P.Nama);
+                            cout << "Masukkan ID dokter: ";
+                            cin >> D.id;
+                            cout << "Masukkan nama dokter: ";
+                            cin >> D.nama;
 
-                adr_relasi r;
-                r = deleteAfterRelasi(d, p);
+                            cout << "Masukkan nama pasien lama: ";
+                            cin >> P.Nama;
+                            cout << "Masukkan NIK pasien lama: ";
+                            cin >> P.NIK;
 
+                            cout << "Masukkan nama pasien baru: ";
+                            cin >> Pnew.Nama;
+                            cout << "Masukkan NIK pasien baru: ";
+                            cin >> Pnew.NIK;
+
+                            editRelasiGantiPasien(LD, LP, D.id, D.nama, P.NIK, P.Nama, Pnew.NIK, Pnew.Nama);
+                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        }
+                        case 5:
+                            //show list relasi
+                            cout << "~~~~~~~~~~~~~~~~~~~ Show List Relasi ~~~~~~~~~~~~~~~~" << endl;
+                            break;
+                        case 6:
+                            break;
+                        case 0:
+                            break;
+                    }
+                    select = case9();
+                }
                 break;
             }
-            case 10: {
-                // mencari dokter
-                dokter D;
-                adr_dokter d;
-                cout << "Cari dokter";
-                cout << "Masukkan nama dokter yang ingin dicari: ";
-                cin >> D.nama;
-                cout << "Masukkan ID dokter yang ingin dicari: ";
-                cin >> D.id;
-                d = FindDokter(LD, D.id, D.nama);
-
-                cout << d->info.id << endl;
-                cout << d->info.nama << endl;
-                cout << d->info.spesialisasi << endl;
-                cout << d->info.jk << endl;
-                cout << d->info.umur << endl;
-                cout << d->info.NKD << endl;
-                cout << d->info.nomorHP << endl;
-                break;
-            }
-            case 11: {
-                // mencari pasien
-                Pasien P;
-                adr_pasien p;
-
-                cout << "Cari Pasien";
-                cout << "Masukkan nama pasien yang ingin dicari: ";
-                cin >> P.Nama;
-                cout << "Masukkan NIK dokter yang ingin dicari: ";
-                cin >> P.NIK;
-                p = FindPasien(LP, P.NIK, P.Nama);
-
-                cout << p->info.Nama << endl;
-                cout << p->info.NIK << endl;
-                cout << p->info.JenisKelamin << endl;
-                cout << p->info.golonganDarah<< endl;
-                cout << p->info.berat << endl;
-                cout << p->info.tinggiBadan << endl;
-                cout << p->info.TTL << endl;
-                cout << p->info.usia << endl;
-                cout << p->info.asuransiKesehatan << endl;
-                cout << p->info.agama << endl;
-                break;
-            }
-            case 12: {
-                    // Mencari Relasi
-                break;
-            }
-            case 13: {
-                // Mencari Pasien Dokter
-                dokter D;
-                adr_dokter d;
-                cout << "Cari dokter";
-                cout << "Masukkan nama dokter yang ingin dicari: ";
-                cin >> D.nama;
-                cout << "Masukkan ID dokter yang ingin dicari: ";
-                cin >> D.id;
-
-                showPasienDariDokter(LD, D.id, D.nama);
-                break;
-            }
-
-            case 14: {
-                // Show data Dokter dan Pasiennya
-                showDokterPasienBerelasi(LD);
-                break;
-            }
-            case 15: {
-                // Show data Pasien dan Dokternya
-                Pasien P;
-                adr_pasien p;
-
-                cout << "Cari Pasien";
-                cout << "Masukkan nama pasien yang ingin dicari: ";
-                cin >> P.Nama;
-                cout << "Masukkan NIK dokter yang ingin dicari: ";
-                cin >> P.NIK;
-                showDokterDariPasien(LD, LP, P.NIK, P.Nama);
-                break;
-            }
-            case 16: {
-                // show semua child dan parent
-                showChildParent(LP, LD);
-                break;
-            }
-            case 17: {
-                // hitung relasi dokter
-                dokter D;
-                adr_dokter d;
-                cout << "Cari dokter";
-                cout << "Masukkan nama dokter yang ingin dicari: ";
-                cin >> D.nama;
-                cout << "Masukkan ID dokter yang ingin dicari: ";
-                cin >> D.id;
-                hitungPasienDariDokter(LD, D.id, D.nama);
-                break;
-            }
-            case 18: {
-                // hitung relasi pasien
-                break;
-            }
-            case 19: {
-                // Hitung pasien yang tidak memiliki dokter
-                break;
-            }
-            case 20: {
-                // Edit Relasi
-                dokter D;
-                Pasien P;
-                Pasien Pnew;
-
-                cout << "Ganti Pasien";
-
-                cout << "Masukkan ID dokter: ";
-                cin >> D.id;
-                cout << "Masukkan nama dokter: ";
-                cin >> D.nama;
-
-                cout << "Masukkan nama pasien lama: ";
-                cin >> P.Nama;
-                cout << "Masukkan NIK pasien lama: ";
-                cin >> P.NIK;
-
-                cout << "Masukkan nama pasien baru: ";
-                cin >> Pnew.Nama;
-                cout << "Masukkan NIK pasien baru: ";
-                cin >> Pnew.NIK;
-
-                editRelasiGantiPasien(LD, LP, D.id, D.nama, P.NIK, P.Nama, Pnew.NIK, Pnew.Nama);
-                break;
-            }
-            case 0:
-                // exit
-                break;
             default:
                 // jika user input tidak sesuai
                 break;
         }
         select = menu();
     }
+
+    cout << "keluar dari program";
 
     return 0;
 }
