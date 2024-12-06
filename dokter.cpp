@@ -27,35 +27,54 @@ void insertLastDokter(ListDokter &LD, adr_dokter p){
 }
 
 void DeleteLastDokter(ListDokter &LD, adr_dokter &p){
-    p = LD.last;
-    if (LD.first == NULL){
-        LD.first = NULL;
-        LD.last = NULL;
-    }else {
-        LD.last = LD.last->prev;
-        p->prev = NULL;
-        LD.last->next = NULL;
+    if (LD.first == nullptr) {
+        // List kosong
+        cout << "ListDokter kosong, tidak ada data yang bisa dihapus." << endl;
+        P = nullptr;
+    } else {
+        P = LD.last;
+        adr_relasi rel = P->firstRelasi;
+        while (rel != nullptr) {
+            adr_relasi tempRelasi = rel;
+            rel = rel->nextRelasi;
+            delete tempRelasi;
+        }
+        P->firstRelasi = nullptr;
+
+        if (LD.first == LD.last) {
+            LD.first = nullptr;
+            LD.last = nullptr;
+        } else {
+            LD.last = P->prev;
+            LD.last->next = nullptr;
+        }
+        delete P;
+        P = nullptr;
     }
 }
 
-void showDokter(ListDokter LD){
-    adr_dokter p = LD.first;
-    if (LD.first == NULL){
-        cout << "list kosong" << endl;
-    }else {
-        cout << "List Dokter: " << endl;
-        while (p != NULL){
-            cout << p->info.id << endl;
-            cout << p->info.nama << endl;
-            cout << p->info.spesialisasi << endl;
-            cout << p->info.jk << endl;
-            cout << p->info.umur << endl;
-            cout << p->info.NKD << endl;
-            cout << p->info.nomorHP << endl;
-            p = p->next;
+void showDokter(ListDokter LD) {
+    if (LD.first == nullptr) {
+        cout << "ListDokter kosong. Tidak ada data dokter yang dapat ditampilkan." << endl;
+    } else {
+        cout << "Daftar Dokter:" << endl;
+        adr_dokter current = LD.first;
+        while (current != nullptr) {
+            dokter d = current->info;
+            cout << "------------------------------------------" << endl;
+            cout << "ID Dokter         : " << d.id << endl;
+            cout << "Nama Dokter       : " << d.nama << endl;
+            cout << "Spesialisasi      : " << d.spesialisasi << endl;
+            cout << "Jenis Kelamin     : " << d.jk << endl;
+            cout << "Umur              : " << d.umur << endl;
+            cout << "NKD               : " << d.NKD << endl;
+            cout << "Nomor HP          : " << d.nomorHP << endl;
+            cout << "------------------------------------------" << endl;
+            current = current->next;
         }
     }
 }
+
 
 adr_dokter FindDokter(ListDokter LD, string id, string nama){
     adr_dokter p = LD.first;
