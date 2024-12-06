@@ -3,31 +3,168 @@
 int menu(){
     int select;
 
-    cout << "-------------Rumah Sakit Budiman-------------" << endl;
-    cout << "--Pilih Menu--" << endl;
-    cout << "1. Show List Dokter" << endl;
-    cout << "2. Show List Pasien" << endl;
-    cout << "3. Show List Relasi" << endl;
-    cout << "4. Tambahkan Dokter Baru" << endl;
-    cout << "5. Tambahkan Pasien Baru" << endl;
-    cout << "6. Tambahkan relasi Dokter dan Pasien" << endl;
-    cout << "7. Hapus Dokter" << endl;
-    cout << "8. Hapus pasien" << endl;
-    cout << "9. Hapus pasien pada dokter tertentu" << endl;
-    cout << "10. Mencari Dokter" << endl;
-    cout << "11. Mencari Pasien" << endl;
-    cout << "12. Mencari Relasi" << endl;
-    cout << "13. Mencari Pasien Dokter" << endl;
-    cout << "14. Show data Dokter dan Pasiennya" << endl;
-    cout << "15. Show data Pasien dan Dokternya" << endl;
-    cout << "16. Show semua data Pasien dan Dokternya" << endl;
-    cout << "17. Hitung Relasi Dokter" << endl;
-    cout << "18. Hitung Relasi Pasien tertentu" << endl;
-    cout << "19. Hitung pasien yang tidak memiliki dokter" << endl;
-    cout << "20. Edit Relasi" << endl;
-    cout << "0. Exit" << endl;
-    cout << "-----------------------------------------------" << endl;
+    cout << "               _______________________               " << endl;
+    cout << "~~~~~~~~~~~~~~|                       |~~~~~~~~~~~~~~" << endl;
+    cout << "|             |  Rumah Sakit Budiman  |             |" << endl;
+    cout << "|             |       Pilih Menu      |             |" << endl;
+    cout << "|~~~~~~~~~~~~~|_______________________|~~~~~~~~~~~~~|" << endl;
+    cout << "|                                                   |" << endl;
+    cout << "| 1. Show List Dokter                               |" << endl;
+    cout << "| 2. Show List Pasien                               |" << endl;
+    cout << "| 3. Tambahkan dokter                               |" << endl;
+    cout << "| 4. Tambahkan pasien                               |" << endl;
+    cout << "| 5. Registrasi pasien dengan dokter                |" << endl;
+    cout << "| 6. Hapus elemen                                   |" << endl;
+    cout << "| 7. Show data                                      |" << endl;
+    cout << "| 8. Cari data                                      |" << endl;
+    cout << "| 9. Menu lainnya                                   |" << endl;
+    cout << "| 0. Exit                                           |" << endl;
+    cout << "|                                                   |" << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
+    cout << "-> ";
     cin >> select;
     return select;
 }
+
+int case6() {
+    int select;
+
+    cout << "~~~~~~~~~~~~~~~~~~~ Hapus Elemen ~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "|                                                   |" << endl;
+    cout << "| 1. Hapus dokter                                   |" << endl;
+    cout << "| 2. Hapus pasien                                   |" << endl;
+    cout << "| 3. Hapus pasien dari dokter                       |" << endl;
+    cout << "| 4. Kembali                                        |" << endl;
+    cout << "| 0. Exit                                           |" << endl;
+    cout << "|                                                   |" << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+    cout << "-> ";
+    cin >> select;
+    return select;
+}
+
+int case7() {
+    int select;
+
+    cout << "~~~~~~~~~~~~~~~~~~~ Tampilkan Data ~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "|                                                   |" << endl;
+    cout << "| 1. Tampilkan dokter dan pasiennya                 |" << endl;
+    cout << "| 2. Tampilkan pasien dan dokternya                 |" << endl;
+    cout << "| 3. Tampilkan semua data pasien dan dokternya      |" << endl;
+    cout << "| 4. Tampilkan relasi                               |" << endl;
+    cout << "| 5. Kembali                                        |" << endl;
+    cout << "| 0. Exit                                           |" << endl;
+    cout << "|                                                   |" << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+    cout << "-> ";
+    cin >> select;
+    return select;
+}
+
+int case8() {
+    int select;
+
+    cout << "~~~~~~~~~~~~~~~~~~~~~ Cari Data ~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "|                                                   |" << endl;
+    cout << "| 1. Cari dokter                                    |" << endl;
+    cout << "| 2. Cari pasien                                    |" << endl;
+    cout << "| 3. Cari relasi                                    |" << endl;
+    cout << "| 4. Cari pasien dari dokter                        |" << endl;
+    cout << "| 5. Kembali                                        |" << endl;
+    cout << "| 0. Exit                                           |" << endl;
+    cout << "|                                                   |" << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+    cout << "-> ";
+    cin >> select;
+    return select;
+}
+
+int case9() {
+    int select;
+
+    cout << "~~~~~~~~~~~~~~~~~~~~ Menu Lainnya ~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "|                                                   |" << endl;
+    cout << "| 1. Hitung pasien yang dimiliki dokter             |" << endl;
+    cout << "| 2. Hitung dokter yang dimiliki pasien             |" << endl;
+    cout << "| 3. Hitung pasien yang tidak memiliki dokter       |" << endl;
+    cout << "| 4. Ganti pasien pada dokter tertentu              |" << endl;
+    cout << "| 5. Show list relasi                               |" << endl;
+    cout << "| 6. Kembali                                        |" << endl;
+    cout << "| 0. Exit                                           |" << endl;
+    cout << "|                                                   |" << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+    cout << "-> ";
+    cin >> select;
+    return select;
+}
+
+void inputDataDokter(dokter &D) {
+    cout << "Masukkan ID dokter: ";
+    cin >> D.id;
+    cout << "Masukkan nama dokter: ";
+    cin >> D.nama;
+    cout << "Masukkan spesialisasi dokter: ";
+    cin >> D.spesialisasi;
+    cout << "Masukkan jenis kelamin dokter: ";
+    cin >> D.jk;
+    cout << "Masukkan umur dokter: ";
+    cin >> D.umur;
+    cout << "Masukkan NKD dokter: ";
+    cin >> D.NKD;
+    cout << "Masukkan nomor telepon dokter: ";
+    cin >> D.nomorHP;
+}
+
+void inputDataPasien(Pasien &P) {
+    cout << "Masukkan nama pasien: ";
+    cin >> P.Nama;
+    cout << "Masukkan NIK pasien: ";
+    cin >> P.NIK;
+    cout << "Masukkan jenis kelamin pasien: ";
+    cin >> P.JenisKelamin;
+    cout << "Masukkan jenis golongan darah pasien: ";
+    cin >> P.golonganDarah;
+    cout << "Masukkan berat pasien: ";
+    cin >> P.berat;
+    cout << "Masukkan tinggi pasien: ";
+    cin >> P.NIK;
+    cout << "Apakah pasien memiliki asuransi kesehatan? ";
+    cin >> P.asuransiKesehatan;
+    cout << "Masukkan agama pasien";
+    cin >> P.agama;
+}
+
+
+/*
+    1. show list dokter
+    2. show list pasien
+    3. tambahkan dokter
+    4. tambahkan pasien
+    5. registrasi pasien dengan dokter
+    6. hapus elemen
+        1. hapus dokter
+        2. hapus pasien
+        3. hapus pasien pada dokter
+    7. show data
+        1. Show data Dokter dan Pasiennya
+        2. Show data Pasien dan Dokternya
+        3. show semua data pasien dan dokternya
+        4. tampilkan relasi
+    8. cari elemen
+        1. cari dokter
+        2. cari pasien
+        3. cari relasi
+        4. cari pasien dokter
+    9. menu lainnya
+        1. hitung pasien yang dimiliki dokter
+        2. hitung dokter yang dimiliki pasien
+        3. hitung pasien yang tidak memiliki dokter
+        4. ganti pasien pada dokter tertentu
+        5. show list relasi
+    0. exit
+*/
