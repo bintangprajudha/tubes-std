@@ -2,6 +2,7 @@
 #define HEADER_H_INCLUDED
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 // adt list parent
@@ -85,7 +86,7 @@ void insertLastPasien(ListPasien &LP, adr_pasien P);
 void deleteFirstPasien(ListPasien &LP, ListDokter &LD, adr_pasien &P);
 adr_pasien FindPasien(ListPasien LP, string NIK, string nama);
 void ShowPasien(ListPasien LP);
-int hitungRelasiPasien(ListDokter LD, ListPasien LP);
+void hitungRelasiPasien(ListDokter LD, ListPasien LP, int &jumRelasi);
 int hitungPasienNoRelasi(ListDokter LD, ListPasien LP);
 
 // procedure relasi
@@ -98,6 +99,14 @@ void showChildParent(ListPasien LP, ListDokter LD);
 adr_relasi deleteAfterRelasi(adr_dokter &dokter, adr_pasien pasienLama);
 void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nama_dokter, string nik_pasien, string nama_pasien_lama, string new_nik_pasien, string nama_pasien_baru);
 
+
+// bagian menu
 int menu();
+void inputDataDokter(dokter &D);
+void inputDataPasien(Pasien &P);
+int case6();
+int case7();
+int case8();
+int case9();
 
 #endif // HEADER_H_INCLUDED
