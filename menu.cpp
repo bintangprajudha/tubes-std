@@ -121,6 +121,8 @@ void inputDataDokter(dokter &D) {
 }
 
 void inputDataPasien(Pasien &P) {
+
+    string askes, ttl;
     cout << "Masukkan nama pasien: ";
     cin >> P.Nama;
     cout << "Masukkan NIK pasien: ";
@@ -129,12 +131,19 @@ void inputDataPasien(Pasien &P) {
     cin >> P.JenisKelamin;
     cout << "Masukkan jenis golongan darah pasien: ";
     cin >> P.golonganDarah;
-    cout << "Masukkan berat pasien: ";
+    cout << "Masukkan berat pasien(kg): ";
     cin >> P.berat;
-    cout << "Masukkan tinggi pasien: ";
-    cin >> P.NIK;
-    cout << "Apakah pasien memiliki asuransi kesehatan? ";
-    cin >> P.asuransiKesehatan;
+    cout << "Masukkan tinggi pasien(cm): ";
+    cin >> P.tinggiBadan;
+
+    string ttl;
+    cout << "Masukkan tempat, tanggal lahir: ";
+    std::getline(std::cin, ttl);
+    getline(cin, P.TTL);
+
+    cout << "Apakah pasien memiliki asuransi kesehatan(YA/Tidak)? ";
+    cin >> askes;
+    P.asuransiKesehatan = (askes == "Ya") ? true : false;
     cout << "Masukkan agama pasien";
     cin >> P.agama;
 }
