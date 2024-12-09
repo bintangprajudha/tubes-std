@@ -68,12 +68,14 @@ int main()
                 cin >> P.NIK;
                 p = FindPasien(LP, P.NIK, P.Nama);
                 r = createElmRelasi(p);
+                cout << "Masukkan spesialisasi dokter yang diinginkan: ";
+                cin >> D.spesialisasi;
 
                 cout << "Masukkan nama dokter";
                 cin >> D.nama;
                 cout << "Masukkan ID dokter";
                 cin >> D.id;
-                d = FindDokter(LD, D.id, D.nama);
+                d = FindDokter(LD, D.id, D.nama, "");
 
                 insertLastRelasi(d, r);
                 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
@@ -110,7 +112,7 @@ int main()
                             cin >> D.nama;
                             cout << "Masukkan ID dokter yang ingin dicari: ";
                             cin >> D.id;
-                            d = FindDokter(LD, D.id, D.nama);
+                            d = FindDokter(LD, D.id, D.nama, "");
 
                             Pasien P;
                             adr_pasien p;
@@ -197,7 +199,7 @@ int main()
                             cin >> D.nama;
                             cout << "Masukkan ID dokter yang ingin dicari: ";
                             cin >> D.id;
-                            d = FindDokter(LD, D.id, D.nama);
+                            d = FindDokter(LD, D.id, D.nama, "");
 
                             cout << d->info.id << endl;
                             cout << d->info.nama << endl;
