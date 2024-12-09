@@ -66,16 +66,18 @@ int main()
                 cin >> P.Nama;
                 cout << "Masukkan NIK pasien";
                 cin >> P.NIK;
-                p = FindPasien(LP, P.NIK, P.Nama);
-                r = createElmRelasi(p);
+            
                 cout << "Masukkan spesialisasi dokter yang diinginkan: ";
                 cin >> D.spesialisasi;
+                
+                p = FindPasien(LP, P.NIK, P.Nama);
+                r = createElmRelasi(p);
 
                 cout << "Masukkan nama dokter";
                 cin >> D.nama;
                 cout << "Masukkan ID dokter";
                 cin >> D.id;
-                d = FindDokter(LD, D.id, D.nama, "");
+                d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
 
                 insertLastRelasi(d, r);
                 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
