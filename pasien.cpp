@@ -1,5 +1,6 @@
 #include "header.h"
 #include <iostream>
+
 using namespace std;
 
 void createListPasien(ListPasien &LP){
@@ -77,16 +78,18 @@ void ShowPasien(ListPasien LP){
     } else {
         cout << "List Pasien: " << endl;
         while (Q != NULL){
-            cout << Q->info.Nama << endl;
-            cout << Q->info.NIK << endl;
-            cout << Q->info.JenisKelamin << endl;
-            cout << Q->info.golonganDarah<< endl;
-            cout << Q->info.berat << endl;
-            cout << Q->info.tinggiBadan << endl;
-            cout << Q->info.TTL << endl;
-            cout << Q->info.usia << endl;
-            cout << Q->info.asuransiKesehatan << endl;
-            cout << Q->info.agama << endl;
+            cout << "------------------------------------------------" << endl;
+            cout << "Nama Pasien                        : "<< Q->info.Nama << endl;
+            cout << "NIK Pasien                         : "<< Q->info.NIK << endl;
+            cout << "Jenis Kelamin Pasien               : "<< Q->info.JenisKelamin << endl;
+            cout << "Golongan Darah Pasien              : "<< Q->info.golonganDarah<< endl;
+            cout << "Berat Badan Pasien                 : "<< Q->info.berat << endl;
+            cout << "Tinggi Badan Pasien                : "<< Q->info.tinggiBadan << endl;
+            cout << "Tempat dan Tanggal Lahir Pasien    : "<< Q->info.TTL << endl;
+            cout << "Usia Pasien                        : "<< Q->info.usia << endl;
+            cout << "Kepemilikan Asuransi Pasien        : "<< Q->info.asuransiKesehatan << endl;
+            cout << "Agama Pasien                       : "<< Q->info.agama << endl;
+            cout << "------------------------------------------------" << endl;
             Q = Q->next;
         }
     }
