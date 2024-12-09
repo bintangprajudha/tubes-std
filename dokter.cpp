@@ -26,7 +26,7 @@ void insertLastDokter(ListDokter &LD, adr_dokter p){
     }
 }
 
-void DeleteLastDokter(ListDokter &LD, adr_dokter &p){
+void DeleteLastDokter(ListDokter &LD, adr_dokter &P){
     if (LD.first == nullptr) {
         // List kosong
         cout << "ListDokter kosong, tidak ada data yang bisa dihapus." << endl;
@@ -76,10 +76,10 @@ void showDokter(ListDokter LD) {
 }
 
 
-adr_dokter FindDokter(ListDokter LD, string id, string nama){
+adr_dokter FindDokter(ListDokter LD, string id, string nama, string spesialisasi){
     adr_dokter p = LD.first;
     while (p != NULL) {
-        if (p->info.id == id && p->info.nama == nama) {
+        if (p->info.id == id && p->info.nama == nama && p->info.spesialisasi == spesialisasi) {
             cout << "Dokter Ditemukan" << endl;
             return p;
         }else {
@@ -93,7 +93,7 @@ adr_dokter FindDokter(ListDokter LD, string id, string nama){
 //--------------
 
 void showPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter) {
-    adr_dokter dokter = FindDokter(LD, id_dokter, nama_dokter);
+    adr_dokter dokter = FindDokter(LD, id_dokter, nama_dokter, "");
     if (dokter == nullptr) {
         cout << "Dokter Tidak Ditemukan" << endl;
         return;
@@ -157,7 +157,7 @@ void showDokterDariPasien(ListDokter LD, ListPasien LP, string nik_pasien, strin
 }
 
 int hitungPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter) {
-    adr_dokter dokter = FindDokter(LD, id_dokter, nama_dokter);
+    adr_dokter dokter = FindDokter(LD, id_dokter, nama_dokter, "");
     if (dokter == nullptr) {
         cout << "Dokter dengan ID " << id_dokter << " tidak ditemukan." << endl;
         return 0;
@@ -172,7 +172,6 @@ int hitungPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter) 
     }
     return totalRelasi;
 }
-
 
 
 
