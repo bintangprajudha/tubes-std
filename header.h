@@ -2,6 +2,7 @@
 #define HEADER_H_INCLUDED
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 // adt list parent
@@ -72,7 +73,7 @@ adr_dokter createElmDokter(dokter D);
 void insertLastDokter(ListDokter &LD, adr_dokter P);
 void DeleteLastDokter(ListDokter &LD, adr_dokter &P);
 void showDokter(ListDokter LD);
-adr_dokter FindDokter(ListDokter LD, string id, string nama);
+adr_dokter FindDokter(ListDokter LD, string id, string nama, string spesialisasi);
 void showPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter);
 void showDokterDariPasien(ListDokter LD, ListPasien LP, string nik_pasien, string nama_pasien);
 int hitungPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter);
