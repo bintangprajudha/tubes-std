@@ -87,6 +87,7 @@ void ShowPasien(ListPasien LP){
             cout << Q->info.usia << endl;
             cout << Q->info.asuransiKesehatan << endl;
             cout << Q->info.agama << endl;
+            Q = Q->next;
         }
     }
 }
