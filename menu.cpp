@@ -135,12 +135,11 @@ void inputDataPasien(Pasien &P) {
     cin >> P.berat;
     cout << "Masukkan tinggi pasien(cm): ";
     cin >> P.tinggiBadan;
-
-    string ttl;
     cout << "Masukkan tempat, tanggal lahir: ";
     std::getline(std::cin, ttl);
     getline(cin, P.TTL);
-    
+    cout << "Masukkan usia: ";
+    cin >> P.usia;
     cout << "Apakah pasien memiliki asuransi kesehatan(Ya/Tidak)? ";
     cin >> askes;
     P.asuransiKesehatan = (askes == "Ya") ? true : false;
