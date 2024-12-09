@@ -140,11 +140,11 @@ void inputDataPasien(Pasien &P) {
     cout << "Masukkan tempat, tanggal lahir: ";
     std::getline(std::cin, ttl);
     getline(cin, P.TTL);
-
-    cout << "Apakah pasien memiliki asuransi kesehatan(YA/Tidak)? ";
+    
+    cout << "Apakah pasien memiliki asuransi kesehatan(Ya/Tidak)? ";
     cin >> askes;
     P.asuransiKesehatan = (askes == "Ya") ? true : false;
-    cout << "Masukkan agama pasien";
+    cout << "Masukkan agama pasien: ";
     cin >> P.agama;
 }
 
