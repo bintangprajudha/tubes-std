@@ -183,7 +183,8 @@ void showDokterSpesialisasi(ListDokter LD, string spesialisasi) {
     cout << "Dokter dengan spesialisasi " << spesialisasi << ":" << endl;
     while (P != nullptr) {
         if (P->info.spesialisasi == spesialisasi) {
-            cout << "- Nama: " << P->info.nama << endl;
+            cout << "- Nama\t: " << P->info.nama << endl;
+            cout << "- ID\t: " << P->info.id << endl << endl;
             found = true;
         }
         P = P->next;
@@ -192,5 +193,4 @@ void showDokterSpesialisasi(ListDokter LD, string spesialisasi) {
         cout << "Tidak ada dokter dengan spesialisasi tersebut." << endl;
     }
 }
-
 
