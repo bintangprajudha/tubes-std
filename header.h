@@ -14,7 +14,7 @@ struct dokter
     string spesialisasi;
     string jk;
     int umur;
-    int NKD;
+    string NKD;
     int nomorHP;
 };
 
