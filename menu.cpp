@@ -104,26 +104,30 @@ int case9() {
 }
 
 void inputDataDokter(dokter &D) {
-    string temp;
     cout << "Masukkan ID dokter: ";
     cin >> D.id;
+    cin.ignore();
+
     cout << "Masukkan nama dokter: ";
-    std::getline(std::cin, temp);
     getline(cin, D.nama);
 
     cout << "Masukkan spesialisasi dokter: ";
-    std::getline(std::cin, temp);
     getline(cin, D.spesialisasi);
 
     cout << "Masukkan jenis kelamin dokter: ";
-    std::getline(std::cin, temp);
     getline(cin, D.jk);
+
     cout << "Masukkan umur dokter: ";
     cin >> D.umur;
+    cin.ignore();
+
     cout << "Masukkan NKD dokter: ";
     cin >> D.NKD;
+    cin.ignore();
+
     cout << "Masukkan nomor telepon dokter: ";
     cin >> D.nomorHP;
+    cin.ignore();
 }
 
 void inputDataPasien(Pasien &P) {
