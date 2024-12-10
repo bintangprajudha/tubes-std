@@ -46,7 +46,7 @@ adr_relasi findRelasi(ListDokter &LD, string id_dokter, string nik_pasien){
     }
 
     return nullptr; // Relasi tidak ditemukan
-};
+}
 
 void showDokterPasienBerelasi(ListDokter LD){
     adr_dokter currentDokter = LD.first;
@@ -153,7 +153,7 @@ adr_relasi deleteAfterRelasi(adr_dokter &dokter, adr_pasien pasienLama){
 };
 
 void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nama_dokter, string nik_pasien, string nama_pasien_lama, string new_nik_pasien, string nama_pasien_baru){
-    adr_dokter dokter = FindDokter(LD, id_dokter, nama_dokter);
+    adr_dokter dokter = FindDokter(LD, id_dokter, nama_dokter, "");
     adr_pasien pasienLama = FindPasien(LP, nik_pasien, nama_pasien_lama);
     adr_pasien pasienBaru = FindPasien(LP, new_nik_pasien, nama_pasien_baru);
 
