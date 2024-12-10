@@ -109,5 +109,7 @@ int case6();
 int case7();
 int case8();
 int case9();
+void regitrasiPasien(ListDokter &LD, ListPasien &LP);
+void tambahPasienBaru(ListPasien &LP);
 
 #endif // HEADER_H_INCLUDED
