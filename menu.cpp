@@ -104,14 +104,20 @@ int case9() {
 }
 
 void inputDataDokter(dokter &D) {
+    string temp;
     cout << "Masukkan ID dokter: ";
     cin >> D.id;
     cout << "Masukkan nama dokter: ";
-    cin >> D.nama;
+    std::getline(std::cin, temp);
+    getline(cin, D.nama);
+
     cout << "Masukkan spesialisasi dokter: ";
-    cin >> D.spesialisasi;
+    std::getline(std::cin, temp);
+    getline(cin, D.spesialisasi);
+
     cout << "Masukkan jenis kelamin dokter: ";
-    cin >> D.jk;
+    std::getline(std::cin, temp);
+    getline(cin, D.jk);
     cout << "Masukkan umur dokter: ";
     cin >> D.umur;
     cout << "Masukkan NKD dokter: ";
@@ -121,14 +127,16 @@ void inputDataDokter(dokter &D) {
 }
 
 void inputDataPasien(Pasien &P) {
+    string askes, temp;
 
-    string askes, ttl;
     cout << "Masukkan nama pasien: ";
-    cin >> P.Nama;
+    std::getline(std::cin, temp);
+    getline(cin, P.Nama);
     cout << "Masukkan NIK pasien: ";
     cin >> P.NIK;
     cout << "Masukkan jenis kelamin pasien: ";
-    cin >> P.JenisKelamin;
+    std::getline(std::cin, temp);
+    getline(cin, P.JenisKelamin);
     cout << "Masukkan jenis golongan darah pasien: ";
     cin >> P.golonganDarah;
     cout << "Masukkan berat pasien(kg): ";
@@ -136,7 +144,7 @@ void inputDataPasien(Pasien &P) {
     cout << "Masukkan tinggi pasien(cm): ";
     cin >> P.tinggiBadan;
     cout << "Masukkan tempat, tanggal lahir: ";
-    std::getline(std::cin, ttl);
+    std::getline(std::cin, temp);
     getline(cin, P.TTL);
     cout << "Masukkan usia: ";
     cin >> P.usia;
@@ -146,6 +154,89 @@ void inputDataPasien(Pasien &P) {
     cout << "Masukkan agama pasien: ";
     cin >> P.agama;
 }
+
+void tambahPasienBaru(ListPasien &LP){
+    Pasien P;
+    adr_pasien p;
+
+    inputDataPasien(P);
+    p = createElmPasien(P);
+    insertLastPasien(LP, p);
+}
+
+void regitrasiPasien(ListDokter &LD, ListPasien &LP){
+    dokter D;
+    adr_dokter d;
+    Pasien P;
+    adr_pasien p;
+    adr_relasi r;
+    string pilih, temp;
+    string lagi = "Ya";
+
+    while(lagi == "Ya"){
+        cout << "Masukkan nama pasien: ";
+        std::getline(std::cin, temp);
+        getline(cin, P.Nama);
+        cout << "Masukkan NIK pasien: ";
+        cin >> P.NIK;
+        cout << endl;
+        p = FindPasien(LP, P.NIK, P.Nama);
+        cout << endl;
+
+        if (p == nullptr) {
+            cout << "Tambah data pasien baru? (Ya/Tidak)" << endl;
+            cout << "-> ";
+            cin >> pilih;
+            if(pilih == "Ya") {
+                tambahPasienBaru(LP);
+
+                r = createElmRelasi(p);
+
+                cout << "Masukkan spesialisasi dokter yang diinginkan: ";
+                cin >> D.spesialisasi;
+
+                showDokterSpesialisasi(LD, D.spesialisasi);
+
+                cout << "Masukkan nama dokter";
+
+                std::getline(std::cin, temp);
+                getline(cin, D.nama);
+                cout << "Masukkan ID dokter";
+                cin >> D.id;
+                d = FindDokter(LD, D.id, D.nama, "");
+
+                insertLastRelasi(d, r);
+                cout << "Registrasi berhasil." << endl << endl;
+            }
+        } else {
+            r = createElmRelasi(p);
+
+            cout << "Masukkan spesialisasi dokter yang diinginkan: ";
+            cin >> D.spesialisasi;
+
+            showDokterSpesialisasi(LD, D.spesialisasi);
+
+            cout << "Masukkan nama dokter: ";
+            std::getline(std::cin, temp);
+            getline(cin, D.nama);
+            cout << "Masukkan ID dokter: ";
+            cin >> D.id;
+            d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
+
+            if(d != nullptr) {
+                insertLastRelasi(d, r);
+                cout << "Registrasi berhasil." << endl << endl;
+            }
+        }
+
+
+        cout << "Registrasi lagi? (Ya/Tidak)" << endl;
+        cout << "-> ";
+        cin >> lagi;
+    }
+}
+
+
 
 
 /*
