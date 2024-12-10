@@ -86,7 +86,7 @@ int main()
                             cin >> D.nama;
                             cout << "Masukkan ID dokter yang ingin dicari: ";
                             cin >> D.id;
-                            d = FindDokter(LD, D.id, D.nama, "");
+                            d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
 
                             Pasien P;
                             adr_pasien p;
@@ -173,7 +173,7 @@ int main()
                             cin >> D.nama;
                             cout << "Masukkan ID dokter yang ingin dicari: ";
                             cin >> D.id;
-                            d = FindDokter(LD, D.id, D.nama, "");
+                            d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
 
                             cout << d->info.id << endl;
                             cout << d->info.nama << endl;
