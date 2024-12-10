@@ -174,7 +174,7 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
     Pasien P;
     adr_pasien p;
     adr_relasi r;
-    string pilih, temp;
+    string pilih, temp, spesialisasi;
     string lagi = "Ya";
 
     while(lagi == "Ya"){
@@ -197,9 +197,9 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
                 r = createElmRelasi(p);
 
                 cout << "Masukkan spesialisasi dokter yang diinginkan: ";
-                cin >> D.spesialisasi;
+                getline(cin, spesialisasi);
 
-                showDokterSpesialisasi(LD, D.spesialisasi);
+                showDokterSpesialisasi(LD, spesialisasi);
 
                 cout << "Masukkan nama dokter";
 
