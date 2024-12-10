@@ -43,43 +43,15 @@ int main()
             case 4: {
                 // tambah pasien baru
                 cout << "~~~~~~~~~~~~~~~~~~ Tambahkan Pasien ~~~~~~~~~~~~~~~~~" << endl;
-                Pasien P;
-                adr_pasien p;
-
-                inputDataPasien(P);
-                p = createElmPasien(P);
-                insertLastPasien(LP, p);
+                tambahPasienBaru(LP);
                 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                 break;
             }
             case 5: {
+                // tambahkan relasi dokter dan pasien sesuai spesialisasi
                 cout << "~~~~~~~~~~~ Registrasi pasien dengan dokter ~~~~~~~~~" << endl;
-                // tambahkan relasi dokter dan pasien
-                // sesuai spesialisasi
-                dokter D;
-                adr_dokter d;
-                Pasien P;
-                adr_pasien p;
-                adr_relasi r;
+                regitrasiPasien(LD, LP);
 
-                cout << "Masukkan nama pasien";
-                cin >> P.Nama;
-                cout << "Masukkan NIK pasien";
-                cin >> P.NIK;
-            
-                cout << "Masukkan spesialisasi dokter yang diinginkan: ";
-                cin >> D.spesialisasi;
-                
-                p = FindPasien(LP, P.NIK, P.Nama);
-                r = createElmRelasi(p);
-
-                cout << "Masukkan nama dokter";
-                cin >> D.nama;
-                cout << "Masukkan ID dokter";
-                cin >> D.id;
-                d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
-
-                insertLastRelasi(d, r);
                 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                 break;
             }
