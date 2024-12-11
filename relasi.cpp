@@ -12,10 +12,10 @@ void insertLastRelasi(adr_dokter &D, adr_relasi R){
         D->firstRelasi = R;
     } else {
         adr_relasi P = D->firstRelasi;
-        while (P->nextRelasi != NULL) {
+        while (P->nextRelasi->nextRelasi != NULL) {
             P = P->nextRelasi;
         }
-        P->nextRelasi = P;
+        P->nextRelasi = R;
     }
 }
 
