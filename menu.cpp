@@ -162,10 +162,18 @@ void inputDataPasien(Pasien &P) {
 void tambahPasienBaru(ListPasien &LP){
     Pasien P;
     adr_pasien p;
+    string tambah;
 
     inputDataPasien(P);
     p = createElmPasien(P);
     insertLastPasien(LP, p);
+    cout << endl;
+    cout << "Tambah Pasien Baru Lagi(Ya/Tidak)? ";
+    cin >> tambah;
+    cout << endl;
+    if (tambah == "Ya") {
+        tambahPasienBaru(LP);
+    }
 }
 
 void regitrasiPasien(ListDokter &LD, ListPasien &LP){
