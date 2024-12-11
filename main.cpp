@@ -130,10 +130,9 @@ int main()
                             Pasien P;
                             adr_pasien p;
 
-                            cout << "Cari Pasien";
-                            cout << "Masukkan nama pasien yang ingin dicari: ";
+                            cout << "Masukkan nama pasien: ";
                             cin >> P.Nama;
-                            cout << "Masukkan NIK dokter yang ingin dicari: ";
+                            cout << "Masukkan NIK pasien: ";
                             cin >> P.NIK;
                             showDokterDariPasien(LD, LP, P.NIK, P.Nama);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
@@ -300,10 +299,6 @@ int main()
                             break;
                         }
                         case 5:
-                            //show list relasi
-                            cout << "~~~~~~~~~~~~~~~~~~~ Show List Relasi ~~~~~~~~~~~~~~~~" << endl;
-                            break;
-                        case 6:
                             break;
                         case 0:
                             break;
