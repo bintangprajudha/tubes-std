@@ -230,6 +230,8 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
             if(d != nullptr) {
                 insertLastRelasi(d, r);
                 cout << "Registrasi berhasil." << endl << endl;
+            } else {
+                cout << "Dokter tidak ditemukan." << endl << endl;
             }
         }
 
