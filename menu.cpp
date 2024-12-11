@@ -177,7 +177,7 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
     string pilih, temp, spesialisasi;
     string lagi = "Ya";
 
-    while(lagi == "Ya"){
+    //while(lagi == "Ya"){
         cout << "Masukkan nama pasien: ";
         std::getline(std::cin, temp);
         getline(cin, P.Nama);
@@ -207,10 +207,14 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
                 getline(cin, D.nama);
                 cout << "Masukkan ID dokter";
                 cin >> D.id;
-                d = FindDokter(LD, D.id, D.nama, "");
+                d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
 
-                insertLastRelasi(d, r);
-                cout << "Registrasi berhasil." << endl << endl;
+                if(d != nullptr) {
+                    insertLastRelasi(d, r);
+                    cout << "Registrasi berhasil." << endl << endl;
+                } else {
+                    cout << "Dokter tidak ditemukan." << endl << endl;
+                }
             }
         } else {
             r = createElmRelasi(p);
@@ -239,7 +243,7 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
         cout << "Registrasi lagi? (Ya/Tidak)" << endl;
         cout << "-> ";
         cin >> lagi;
-    }
+    //}
 }
 
 

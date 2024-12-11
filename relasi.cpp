@@ -12,7 +12,7 @@ void insertLastRelasi(adr_dokter &D, adr_relasi R){
         D->firstRelasi = R;
     } else {
         adr_relasi P = D->firstRelasi;
-        while (P->nextRelasi->nextRelasi != NULL) {
+        while (P->nextRelasi != NULL) {
             P = P->nextRelasi;
         }
         P->nextRelasi = R;
@@ -52,32 +52,33 @@ void showDokterPasienBerelasi(ListDokter LD){
     adr_dokter currentDokter = LD.first;
 
     while (currentDokter != nullptr) {
-        cout << "ID Dokter: " << currentDokter->info.id << endl;
-        cout << "Nama Dokter: " << currentDokter->info.nama << endl;
-        cout << "Spesialisasi: " << currentDokter->info.spesialisasi << endl;
-        cout << "NKD: " << currentDokter->info.NKD << endl;
-        cout << "Jenis Kelamin: " << currentDokter->info.jk << endl;
-        cout << "Umur: " << currentDokter->info.umur << endl;
-        cout << "Nomor Telepon: " << currentDokter->info.nomorHP << endl;
+        cout << " ID Dokter         : " << currentDokter->info.id << endl;
+        cout << " Nama Dokter       : " << currentDokter->info.nama << endl;
+        cout << " Spesialisasi      : " << currentDokter->info.spesialisasi << endl;
+        cout << " NKD               : " << currentDokter->info.NKD << endl;
+        cout << " Jenis Kelamin     : " << currentDokter->info.jk << endl;
+        cout << " Umur              : " << currentDokter->info.umur << endl;
+        cout << " Nomor Telepon     : " << currentDokter->info.nomorHP << endl;
 
         adr_relasi currentRelasi = currentDokter->firstRelasi;
+
         if (currentRelasi == nullptr) {
-            cout << "Dokter ini tidak memiliki pasien yang terkait.\n";
+            cout << "   -Dokter ini tidak memiliki pasien yang terkait.\n";
         } else {
-            cout << "Pasien terkait:\n";
+            cout << "  Pasien terkait:\n";
             while (currentRelasi != nullptr) {
                 adr_pasien relatedPasien = currentRelasi->firstPasien;
                 if (relatedPasien != nullptr) {
-                    cout << "- Nama Pasien: " << relatedPasien->info.Nama << endl;
-                    cout << "  NIK: " << relatedPasien->info.NIK << endl;
-                    cout << "  Jenis Kelamin: " << relatedPasien->info.JenisKelamin << endl;
-                    cout << "  Golongan Darah: " << relatedPasien->info.golonganDarah << endl;
-                    cout << "  Berat: " << relatedPasien->info.berat << endl;
-                    cout << "  Tinggi: " << relatedPasien->info.tinggiBadan << endl;
-                    cout << "  Tempat, Tanggal Lahir: " << relatedPasien->info.TTL << endl;
-                    cout << "  Usia: " << relatedPasien->info.usia << endl;
-                    cout << "  Asuransi Kesehatan: " << relatedPasien->info.asuransiKesehatan << endl;
-                    cout << "  Agama: " << relatedPasien->info.agama << endl;
+                    cout << "   -Nama Pasien: " << relatedPasien->info.Nama << endl;
+                    cout << "   -NIK: " << relatedPasien->info.NIK << endl;
+                    cout << "   -Jenis Kelamin: " << relatedPasien->info.JenisKelamin << endl;
+                    cout << "   -Golongan Darah: " << relatedPasien->info.golonganDarah << endl;
+                    cout << "   -Berat: " << relatedPasien->info.berat << endl;
+                    cout << "   -Tinggi: " << relatedPasien->info.tinggiBadan << endl;
+                    cout << "   -Tempat, Tanggal Lahir: " << relatedPasien->info.TTL << endl;
+                    cout << "   -Usia: " << relatedPasien->info.usia << endl;
+                    cout << "   -Asuransi Kesehatan: " << relatedPasien->info.asuransiKesehatan << endl;
+                    cout << "   -Agama: " << relatedPasien->info.agama << endl << endl;
 
                 }
                 currentRelasi = currentRelasi->nextRelasi;
@@ -92,15 +93,14 @@ void showChildParent(ListPasien LP, ListDokter LD){
 
     // Iterasi melalui daftar pasien
     while (currentPasien != nullptr) {
-        cout << "Pasien:\n";
-        cout << "  Nama: " << currentPasien->info.Nama << endl;
-        cout << "  NIK: " << currentPasien->info.NIK << endl;
-        cout << "  Jenis Kelamin: " << currentPasien->info.JenisKelamin << endl;
-        cout << "  Golongan Darah: " << currentPasien->info.golonganDarah << endl;
-        cout << "  Tinggi Badan: " << currentPasien->info.tinggiBadan << " cm" << endl;
-        cout << "  Berat Badan: " << currentPasien->info.berat << " kg" << endl;
-        cout << "  Usia: " << currentPasien->info.usia << endl;
-        cout << "  Agama: " << currentPasien->info.agama << endl;
+        cout << " Nama Pasien    : " << currentPasien->info.Nama << endl;
+        cout << " NIK            : " << currentPasien->info.NIK << endl;
+        cout << " Jenis Kelamin  : " << currentPasien->info.JenisKelamin << endl;
+        cout << " Golongan Darah : " << currentPasien->info.golonganDarah << endl;
+        cout << " Tinggi Badan   : " << currentPasien->info.tinggiBadan << " cm" << endl;
+        cout << " Berat Badan    : " << currentPasien->info.berat << " kg" << endl;
+        cout << " Usia           : " << currentPasien->info.usia << endl;
+        cout << " Agama          : " << currentPasien->info.agama << endl;
 
         // Temukan dokter melalui daftar relasi di ListDokter
         adr_dokter currentDokter = LD.first;
@@ -113,11 +113,11 @@ void showChildParent(ListPasien LP, ListDokter LD){
             while (currentRelasi != nullptr) {
                 if (currentRelasi->firstPasien == currentPasien) {
                     cout << "  Dokter Terkait:\n";
-                    cout << "    ID Dokter: " << currentDokter->info.id << endl;
-                    cout << "    Nama Dokter: " << currentDokter->info.nama << endl;
-                    cout << "    Spesialisasi: " << currentDokter->info.spesialisasi << endl;
-                    cout << "    Jenis Kelamin: " << currentDokter->info.jk << endl;
-                    cout << "    Umur: " << currentDokter->info.umur << endl << endl;
+                    cout << "   -ID Dokter: " << currentDokter->info.id << endl;
+                    cout << "   -Nama Dokter: " << currentDokter->info.nama << endl;
+                    cout << "   -Spesialisasi: " << currentDokter->info.spesialisasi << endl;
+                    cout << "   -Jenis Kelamin: " << currentDokter->info.jk << endl;
+                    cout << "   -Umur: " << currentDokter->info.umur << endl << endl;
                     found = true;
                     break;
                 }
@@ -127,7 +127,7 @@ void showChildParent(ListPasien LP, ListDokter LD){
         }
 
         if (!found) {
-            cout << "  Dokter Terkait: Tidak ada dokter yang terhubung dengan pasien ini." << endl;
+            cout << "   -Tidak ada dokter yang terhubung dengan pasien ini." << endl;
         }
 
         currentPasien = currentPasien->next;

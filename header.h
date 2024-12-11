@@ -112,6 +112,4 @@ int case9();
 void regitrasiPasien(ListDokter &LD, ListPasien &LP);
 void tambahPasienBaru(ListPasien &LP);
 
-
-
 #endif // HEADER_H_INCLUDED

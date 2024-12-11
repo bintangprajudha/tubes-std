@@ -12,6 +12,7 @@ adr_dokter createElmDokter(dokter D){
     p->info = D;
     p->next = NULL;
     p->prev = NULL;
+    p->firstRelasi = NULL;
     return p;
 }
 
