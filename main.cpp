@@ -103,7 +103,7 @@ int main()
                         }
                         case 2: {
                             //Show data Pasien dan Dokternya
-                            cout << "~~~~~~~~~~~ Tampilkan Pasien dan Dokternya ~~~~~~~~~~" << endl;
+                            cout << "~~~~~~~~~~~ Tampilkan Dokter dari Pasien tertentu ~~~~~~~~~~" << endl;
                             Pasien P;
                             adr_pasien p;
 
