@@ -151,6 +151,7 @@ adr_relasi deleteAfterRelasi(adr_dokter &dokter, adr_pasien pasienLama){
         }
         currentRelasi->nextRelasi = NULL;
     }
+    return currentRelasi;
 };
 
 void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nama_dokter, string nik_pasien, string nama_pasien_lama, string new_nik_pasien, string nama_pasien_baru){

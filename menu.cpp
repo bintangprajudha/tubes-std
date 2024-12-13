@@ -182,6 +182,7 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
     adr_pasien p;
     adr_relasi r;
     string pilih, temp, spesialisasi;
+    bool found;
     string lagi = "Ya";
 
 
@@ -204,45 +205,50 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
                 r = createElmRelasi(p);
 
                 cout << "Masukkan spesialisasi dokter yang diinginkan: ";
-                getline(cin, spesialisasi);
-
-                showDokterSpesialisasi(LD, spesialisasi);
-
-                cout << "Masukkan nama dokter";
-
                 std::getline(std::cin, temp);
-                getline(cin, D.nama);
-                cout << "Masukkan ID dokter";
-                cin >> D.id;
-                d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
+                getline(cin, D.spesialisasi);
+                cout << endl;
 
-                if(d != nullptr) {
-                    insertLastRelasi(d, r);
-                    cout << "Registrasi berhasil." << endl << endl;
-                } else {
-                    cout << "Dokter tidak ditemukan." << endl << endl;
+                found = showDokterSpesialisasi(LD, D.spesialisasi);
+
+                if(found){
+                    cout << "Masukkan nama dokter: ";
+                    getline(cin, D.nama);
+
+                    cout << "Masukkan ID dokter: ";
+                    cin >> D.id;
+                    d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
+                    if(d != nullptr) {
+                        insertLastRelasi(d, r);
+                        cout << "Registrasi berhasil." << endl << endl;
+                    } else {
+                        cout << "Dokter tidak ditemukan." << endl << endl;
+                    }
                 }
             }
         } else {
             r = createElmRelasi(p);
 
             cout << "Masukkan spesialisasi dokter yang diinginkan: ";
-            cin >> D.spesialisasi;
-
-            showDokterSpesialisasi(LD, D.spesialisasi);
-
-            cout << "Masukkan nama dokter: ";
             std::getline(std::cin, temp);
-            getline(cin, D.nama);
-            cout << "Masukkan ID dokter: ";
-            cin >> D.id;
-            d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
+            getline(cin, D.spesialisasi);
+            cout << endl;
 
-            if(d != nullptr) {
-                insertLastRelasi(d, r);
-                cout << "Registrasi berhasil." << endl << endl;
-            } else {
+            found = showDokterSpesialisasi(LD, D.spesialisasi);
+
+            if(found){
+                cout << "Masukkan nama dokter: ";
+                getline(cin, D.nama);
+
+                cout << "Masukkan ID dokter: ";
+                cin >> D.id;
+                d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
+                if(d != nullptr) {
+                    insertLastRelasi(d, r);
+                    cout << "Registrasi berhasil." << endl << endl;
+                } else {
                 cout << "Dokter tidak ditemukan." << endl << endl;
+                }
             }
         }
 
@@ -257,7 +263,48 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
 
 }
 
+void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP){
+    dokter D;
+    adr_dokter d;
+    string temp;
 
+    cout << "Masukkan nama dokter: ";
+    std::getline(std::cin, temp);
+    getline(cin, D.nama);
+
+    cout << "Masukkan ID dokter  : ";
+    cin >> D.id;
+
+    cout << "Masukkan spesialisasi dokter: ";
+    std::getline(std::cin, temp);
+    getline(cin, D.spesialisasi);
+
+    d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
+
+    Pasien P;
+    adr_pasien p;
+
+    cout << "Masukkan nama pasien : ";
+    getline(cin, P.Nama);
+
+    cout << "Masukkan NIK pasien  : ";
+    cin >> P.NIK;
+    cout << endl;
+
+    p = FindPasien(LP, P.NIK, P.Nama);
+
+    adr_relasi r;
+    r = deleteAfterRelasi(d, p);
+
+    string lagi;
+    cout << "Registrasi lagi? (Ya/Tidak)" << endl;
+    cout << "-> ";
+    cin >> lagi;
+    cout << endl;
+    if(lagi == "Ya"){
+        regitrasiPasien(LD, LP);
+    }
+}
 
 
 /*

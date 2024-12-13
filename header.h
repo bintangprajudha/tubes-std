@@ -77,7 +77,7 @@ adr_dokter FindDokter(ListDokter LD, string id, string nama, string spesialisasi
 void showPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter);
 void showDokterDariPasien(ListDokter LD, ListPasien LP, string nik_pasien, string nama_pasien);
 int hitungPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter);
-void showDokterSpesialisasi(ListDokter LD, string spesialisasi);
+bool showDokterSpesialisasi(ListDokter LD, string spesialisasi);
 
 // procedure Child
 
@@ -111,5 +111,6 @@ int case8();
 int case9();
 void regitrasiPasien(ListDokter &LD, ListPasien &LP);
 void tambahPasienBaru(ListPasien &LP);
+void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP);
 
 #endif // HEADER_H_INCLUDED

@@ -79,27 +79,8 @@ int main()
                         case 3: {
                             //hapus pasien pada dokter
                             cout << "~~~~~~~~~~~~~ Hapus Pasien Dari Dokter ~~~~~~~~~~~~~~" << endl;
-                            dokter D;
-                            adr_dokter d;
-                            cout << "Cari dokter" << endl;
-                            cout << "Masukkan nama dokter yang ingin dicari: ";
-                            cin >> D.nama;
-                            cout << "Masukkan ID dokter yang ingin dicari: ";
-                            cin >> D.id;
-                            d = FindDokter(LD, D.id, D.nama, "");
+                            hapusPasienDariDokter(LD, LP);
 
-                            Pasien P;
-                            adr_pasien p;
-
-                            cout << "Cari Pasien" << endl;
-                            cout << "Masukkan nama pasien yang ingin dihapus: ";
-                            cin >> P.Nama;
-                            cout << "Masukkan NIK dokter yang ingin dihapus: ";
-                            cin >> P.NIK;
-                            p = FindPasien(LP, P.NIK, P.Nama);
-
-                            adr_relasi r;
-                            r = deleteAfterRelasi(d, p);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
