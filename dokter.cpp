@@ -174,10 +174,10 @@ int hitungPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter) 
     return totalRelasi;
 }
 
-void showDokterSpesialisasi(ListDokter LD, string spesialisasi) {
+bool showDokterSpesialisasi(ListDokter LD, string spesialisasi) {
     if (LD.first == nullptr) {
-        cout << "List Dokter kosong." << endl;
-        return;
+        cout << "List Dokter kosong." << endl << endl;
+        return false;
     }
     adr_dokter P = LD.first;
     bool found = false;
@@ -191,7 +191,8 @@ void showDokterSpesialisasi(ListDokter LD, string spesialisasi) {
         P = P->next;
     }
     if (!found) {
-        cout << "Tidak ada dokter dengan spesialisasi tersebut." << endl;
+        cout << "Tidak ada dokter dengan spesialisasi tersebut." << endl << endl;
     }
+    return found;
 }
 
