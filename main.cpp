@@ -96,14 +96,14 @@ int main()
                     switch(select) {
                         case 1: {
                             //Show data Dokter dan Pasiennya
-                            cout << "~~~~~~~~~~~ Tampilkan Dokter dan Pasiennya ~~~~~~~~~~" << endl;
+                            cout << "~~~~~~~~~~~ List Dokter dan Pasiennya ~~~~~~~~~~" << endl;
                             showDokterPasienBerelasi(LD);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
                         case 2: {
                             //Show data Pasien dan Dokternya
-                            cout << "~~~~~~~~~~~ Tampilkan Dokter dari Pasien tertentu ~~~~~~~~~~" << endl;
+                            cout << "~~~~~~~~~~~ List Dokter dari Pasien tertentu ~~~~~~~~~~" << endl;
                             Pasien P;
                             adr_pasien p;
 
@@ -117,7 +117,7 @@ int main()
                         }
                         case 3: {
                             //show semua data pasien dan dokternya
-                            cout << "~~~~ Tampilkan Semua Data Pasien dan Dokternya ~~~~~" << endl;
+                            cout << "~~~~ List Pasien dan Dokternya ~~~~~" << endl;
                             showChildParent(LP, LD);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
