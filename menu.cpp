@@ -158,6 +158,23 @@ void inputDataPasien(Pasien &P) {
     P.asuransiKesehatan = (askes == "Ya") ? true : false;
 }
 
+void tambahDokterBaru(ListDokter &LD){
+    dokter D;
+    adr_dokter d;
+    string tambah;
+
+    inputDataDokter(D);
+    d = createElmDokter(D);
+    insertLastDokter(LD, d);
+    cout << endl;
+    cout << "Tambah Dokter Baru Lagi(Ya/Tidak)? ";
+    cin >> tambah;
+    cout << endl;
+    if (tambah == "Ya") {
+        tambahDokterBaru(LD);
+    }
+}
+
 void tambahPasienBaru(ListPasien &LP){
     Pasien P;
     adr_pasien p;
