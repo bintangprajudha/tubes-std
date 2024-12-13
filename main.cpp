@@ -117,7 +117,7 @@ int main()
                         }
                         case 3: {
                             //show semua data pasien dan dokternya
-                            cout << "~~~~ Tampilkan Semua Data Pasien dan Dokternnya ~~~~~" << endl;
+                            cout << "~~~~ Tampilkan Semua Data Pasien dan Dokternya ~~~~~" << endl;
                             showChildParent(LP, LD);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
