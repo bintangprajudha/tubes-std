@@ -50,8 +50,8 @@ int case7() {
 
     cout << "~~~~~~~~~~~~~~~~~~~ Tampilkan Data ~~~~~~~~~~~~~~~~~~" << endl;
     cout << "|                                                   |" << endl;
-    cout << "| 1. Tampilkan dokter dan pasiennya                 |" << endl; //bintang
-    cout << "| 2. Tampilkan dokter dari pasien tertentu          |" << endl;
+    cout << "| 1. Tampilkan semua data dokter dan pasiennya      |" << endl; //bintang
+    cout << "| 2. Tampilkan data dokter dari pasien tertentu     |" << endl;
     cout << "| 3. Tampilkan semua data pasien dan dokternya      |" << endl; //bintang
     cout << "| 4. Tampilkan relasi                               |" << endl; //bintang
     cout << "| 5. Kembali                                        |" << endl;
