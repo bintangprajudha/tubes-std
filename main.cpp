@@ -31,12 +31,7 @@ int main()
             case 3: {
                 // tambahkan Dokter baru
                 cout << "~~~~~~~~~~~~~~~~~~ Tambahkan Dokter ~~~~~~~~~~~~~~~~~" << endl;
-                dokter D;
-                adr_dokter d;
-
-                inputDataDokter(D);
-                d = createElmDokter(D);
-                insertLastDokter(LD, d);
+                tambahDokterBaru(LD);
                 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                 break;
             }
@@ -144,25 +139,29 @@ int main()
                 while (select != 0) {
                     switch(select) {
                         case 1: {
-                            //cari dokter
                             cout << "~~~~~~~~~~~~~~~~~~~~ Cari Dokter ~~~~~~~~~~~~~~~~~~~~" << endl;
                             dokter D;
                             adr_dokter d;
-                            cout << "Cari dokter";
-                            cout << "Masukkan nama dokter yang ingin dicari: ";
-                            cin >> D.nama;
-                            cout << "Masukkan ID dokter yang ingin dicari: ";
-                            cin >> D.id;
-                            d = FindDokter(LD, D.id, D.nama, "");
 
-                            cout << d->info.id << endl;
-                            cout << d->info.nama << endl;
-                            cout << d->info.spesialisasi << endl;
-                            cout << d->info.jk << endl;
-                            cout << d->info.umur << endl;
-                            cout << d->info.NKD << endl;
-                            cout << d->info.nomorHP << endl;
-                            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            cout << "Masukkkan nama dokter yang ingin dicari: ";
+                            cin >> D.nama;
+                            cout << "Masukkkan ID dokter yang ingin dicari: ";
+                            cin >> D.id;
+                            d = FindDokterTanpaSpesialisasi(LD, D.id, D.nama);
+                            cout << " " << endl;
+
+                            if (d != nullptr) {
+                                cout << "ID dokter: " << d->info.id << endl;
+                                cout << "Nama dokter: " << d->info.nama << endl;
+                                cout << "Jenis Kelamin: " << d->info.jk << endl;
+                                cout << "Umur: " << d->info.umur << endl;
+                                cout << "NKD: " << d->info.NKD << endl;
+                                cout << "Nomor telepon: " << d->info.nomorHP << endl;
+                                cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            }else {
+                                cout << "Dokter dengan nama: " << D.nama << ", " << "dan ID: " << D.id << ", tidak ditemukan." << endl;
+                                cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+                            }
                             break;
                         }
                         case 2: {
@@ -203,7 +202,6 @@ int main()
 
                             dokter D;
                             adr_dokter d;
-                            cout << "Cari dokter";
                             cout << "Masukkan nama dokter yang ingin dicari: ";
                             cin >> D.nama;
                             cout << "Masukkan ID dokter yang ingin dicari: ";
@@ -232,9 +230,9 @@ int main()
                             cout << "~~~~~~~~~ Hitung Pasien yang dimiliki Dokter ~~~~~~~~" << endl;
                             dokter D;
                             adr_dokter d;
-                            cout << "Masukkan nama pasien: ";
+                            cout << "Masukkan nama dokter: ";
                             cin >> D.nama;
-                            cout << "Masukkan ID pasien: ";
+                            cout << "Masukkan ID dokter: ";
                             cin >> D.id;
                             hitungPasienDariDokter(LD, D.id, D.nama);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
@@ -294,7 +292,6 @@ int main()
         }
         select = menu();
     }
-
     cout << "keluar dari program";
 
     return 0;
