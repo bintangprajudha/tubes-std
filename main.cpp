@@ -60,6 +60,7 @@ int main()
                             cout << "~~~~~~~~~~~~~~~~~~~~ Hapus Dokter ~~~~~~~~~~~~~~~~~~~" << endl;
                             adr_dokter d;
                             DeleteLastDokter(LD, d);
+                            cout << "Data dokter terakhir berhasil dihapus." << endl;
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
