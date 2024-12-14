@@ -144,8 +144,9 @@ int main()
                             dokter D;
                             adr_dokter d;
 
+                            cin.ignore();
                             cout << "Masukkkan nama dokter yang ingin dicari: ";
-                            cin >> D.nama;
+                            getline(cin, D.nama);
                             cout << "Masukkkan ID dokter yang ingin dicari: ";
                             cin >> D.id;
                             d = FindDokterTanpaSpesialisasi(LD, D.id, D.nama);
