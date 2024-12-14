@@ -209,19 +209,19 @@ bool showDokterSpesialisasi(ListDokter LD, string spesialisasi) {
     }
     adr_dokter P = LD.first;
     bool found = false;
-    cout << "=================================================================" << endl;
+
     cout << "Dokter dengan spesialisasi " << spesialisasi << ":" << endl;
     while (P != nullptr) {
         if (P->info.spesialisasi == spesialisasi) {
-            cout << "- Nama\t: " << P->info.nama << endl;
-            cout << "- ID\t: " << P->info.id << endl << endl;
+            cout << "  |Nama\t: " << P->info.nama << endl;
+            cout << "  |ID\t: " << P->info.id << endl << endl;
             found = true;
         }
         P = P->next;
     }
     if (!found) {
-        cout << "Tidak ada dokter dengan spesialisasi tersebut." << endl;
+        cout << "Tidak ada dokter dengan spesialisasi tersebut." << endl << endl;
     }
-    cout << "=================================================================" << endl;
+
     return found;
 }

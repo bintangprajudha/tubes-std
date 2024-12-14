@@ -99,7 +99,7 @@ adr_relasi findRelasi(ListDokter &LD, string id_dokter, string nik_pasien);
 void showDokterPasienBerelasi(ListDokter LD);
 void showChildParent(ListPasien LP, ListDokter LD);
 adr_relasi deleteAfterRelasi(adr_dokter &dokter, adr_pasien pasienLama);
-void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, string id_dokter, string nama_dokter, string nik_pasien, string nama_pasien_lama, string new_nik_pasien, string nama_pasien_baru);
+void editRelasiGantiPasien(ListDokter &LD, ListPasien &LP, adr_dokter dokter, adr_pasien pasienLama, adr_pasien pasienBaru);
 
 
 // bagian menu
@@ -114,5 +114,6 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP);
 void tambahPasienBaru(ListPasien &LP);
 void tambahDokterBaru(ListDokter &LD);
 void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP);
+void gantiPasienDariDokter(ListDokter &LD, ListPasien &LP);
 
 #endif // HEADER_H_INCLUDED

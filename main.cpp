@@ -255,26 +255,9 @@ int main()
                             //ganti pasien pada dokter tertentu
                             cout << "~~~~~~~~~ Ganti Pasien pada Dokter Tertentu ~~~~~~~~~" << endl;
 
-                            dokter D;
-                            Pasien P;
-                            Pasien Pnew;
+                            gantiPasienDariDokter(LD, LP);
 
-                            cout << "Masukkan ID dokter: ";
-                            cin >> D.id;
-                            cout << "Masukkan nama dokter: ";
-                            cin >> D.nama;
 
-                            cout << "Masukkan nama pasien lama: ";
-                            cin >> P.Nama;
-                            cout << "Masukkan NIK pasien lama: ";
-                            cin >> P.NIK;
-
-                            cout << "Masukkan nama pasien baru: ";
-                            cin >> Pnew.Nama;
-                            cout << "Masukkan NIK pasien baru: ";
-                            cin >> Pnew.NIK;
-
-                            editRelasiGantiPasien(LD, LP, D.id, D.nama, P.NIK, P.Nama, Pnew.NIK, Pnew.Nama);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }

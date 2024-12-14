@@ -13,7 +13,7 @@ int menu(){
     cout << "| 2. Show List Pasien                               |" << endl;
     cout << "| 3. Tambahkan dokter                               |" << endl;
     cout << "| 4. Tambahkan pasien                               |" << endl;
-    cout << "| 5. Registrasi pasien dengan dokter                |" << endl; //bintang
+    cout << "| 5. Registrasi pasien dengan dokter                |" << endl; //bintang (done)
     cout << "| 6. Hapus elemen                                   |" << endl;
     cout << "| 7. Show data                                      |" << endl;
     cout << "| 8. Cari data                                      |" << endl;
@@ -34,7 +34,7 @@ int case6() {
     cout << "|                                                   |" << endl;
     cout << "| 1. Hapus dokter                                   |" << endl;
     cout << "| 2. Hapus pasien                                   |" << endl;
-    cout << "| 3. Hapus pasien dari dokter                       |" << endl; //bintang
+    cout << "| 3. Hapus pasien dari dokter                       |" << endl; //bintang (done)
     cout << "| 4. Kembali                                        |" << endl;
     cout << "| 0. Exit                                           |" << endl;
     cout << "|                                                   |" << endl;
@@ -50,9 +50,9 @@ int case7() {
 
     cout << "~~~~~~~~~~~~~~~~~~~ Tampilkan Data ~~~~~~~~~~~~~~~~~~" << endl;
     cout << "|                                                   |" << endl;
-    cout << "| 1. Tampilkan semua data dokter dan pasiennya      |" << endl; //bintang
+    cout << "| 1. Tampilkan semua data dokter dan pasiennya      |" << endl; //bintang (done)
     cout << "| 2. Tampilkan data dokter dari pasien tertentu     |" << endl;
-    cout << "| 3. Tampilkan semua data pasien dan dokternya      |" << endl; //bintang
+    cout << "| 3. Tampilkan semua data pasien dan dokternya      |" << endl; //bintang (done)
     cout << "| 4. Tampilkan relasi                               |" << endl; //bintang
     cout << "| 5. Kembali                                        |" << endl;
     cout << "| 0. Exit                                           |" << endl;
@@ -206,7 +206,7 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
         cout << "Masukkan nama pasien: ";
         std::getline(std::cin, temp);
         getline(cin, P.Nama);
-        cout << "Masukkan NIK pasien: ";
+        cout << "Masukkan NIK pasien : ";
         cin >> P.NIK;
         cout << endl;
         p = FindPasien(LP, P.NIK, P.Nama);
@@ -232,14 +232,15 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
                     cout << "Masukkan nama dokter: ";
                     getline(cin, D.nama);
 
-                    cout << "Masukkan ID dokter: ";
+                    cout << "Masukkan ID dokter  : ";
                     cin >> D.id;
+                    cout << endl;
                     d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
                     if(d != nullptr) {
                         insertLastRelasi(d, r);
                         cout << "Registrasi berhasil." << endl << endl;
                     } else {
-                        cout << "Dokter tidak ditemukan." << endl << endl;
+                        cout << "Registrasi gagal." << endl << endl;
                     }
                 }
             }
@@ -257,18 +258,17 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
                 cout << "Masukkan nama dokter: ";
                 getline(cin, D.nama);
 
-                cout << "Masukkan ID dokter: ";
+                cout << "Masukkan ID dokter  : ";
                 cin >> D.id;
                 d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
                 if(d != nullptr) {
                     insertLastRelasi(d, r);
                     cout << "Registrasi berhasil." << endl << endl;
                 } else {
-                cout << "Dokter tidak ditemukan." << endl << endl;
+                cout << "Registrasi gagal." << endl << endl;
                 }
             }
         }
-
 
         cout << "Registrasi lagi? (Ya/Tidak)" << endl;
         cout << "-> ";
@@ -291,12 +291,9 @@ void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP){
 
     cout << "Masukkan ID dokter  : ";
     cin >> D.id;
+    cout << endl;
 
-    cout << "Masukkan spesialisasi dokter: ";
-    std::getline(std::cin, temp);
-    getline(cin, D.spesialisasi);
-
-    d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
+    d = FindDokterTanpaSpesialisasi(LD, D.id, D.nama);
 
     Pasien P;
     adr_pasien p;
@@ -312,14 +309,72 @@ void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP){
 
     adr_relasi r;
     r = deleteAfterRelasi(d, p);
+    if (r == nullptr){
+        cout << "Registrasi gagal." << endl << endl;
+    } else {
+        cout << "Registrasi berhasil." << endl << endl;
+    }
 
     string lagi;
-    cout << "Registrasi lagi? (Ya/Tidak)" << endl;
+    cout << "Hapus lagi? (Ya/Tidak)" << endl;
     cout << "-> ";
     cin >> lagi;
     cout << endl;
     if(lagi == "Ya"){
-        regitrasiPasien(LD, LP);
+        hapusPasienDariDokter(LD, LP);
+    }
+}
+
+void gantiPasienDariDokter(ListDokter &LD, ListPasien &LP){
+    dokter D;
+    Pasien P;
+    Pasien Pnew;
+    string temp;
+
+    cout << "Masukkan nama dokter      : ";
+    std::getline(std::cin, temp);
+    getline(cin, D.nama);
+
+    cout << "Masukkan ID dokter        : ";
+    cin >> D.id;
+    cout << endl;
+
+    cout << "Masukkan nama pasien lama : ";
+    std::getline(std::cin, temp);
+    getline(cin, P.Nama);
+
+    cout << "Masukkan NIK pasien lama  : ";
+    cin >> P.NIK;
+    cout << endl;
+
+    cout << "Masukkan nama pasien baru : ";
+    std::getline(std::cin, temp);
+    getline(cin, Pnew.Nama);
+
+    cout << "Masukkan NIK pasien baru  : ";
+    cin >> Pnew.NIK;
+    cout << endl;
+
+    adr_dokter dokter = FindDokterTanpaSpesialisasi(LD, D.id, D.nama);
+    adr_pasien pasienLama = FindPasien(LP, P.NIK, P.Nama);
+    adr_pasien pasienBaru = FindPasien(LP, Pnew.NIK, Pnew.Nama);
+
+    editRelasiGantiPasien(LD, LP, dokter, pasienLama, pasienBaru);
+
+    cout << endl;
+    if(dokter != nullptr && pasienBaru != nullptr && pasienLama != nullptr){
+        cout << "Registrasi berhasil." << endl << endl;
+    } else {
+        cout << "Registrasi gagal." << endl << endl;
+    }
+
+    string lagi;
+    cout << "Ganti pasien lagi? (Ya/Tidak)" << endl;
+    cout << "-> ";
+    cin >> lagi;
+    cout << endl;
+    if(lagi == "Ya"){
+        gantiPasienDariDokter(LD, LP);
     }
 }
 
