@@ -92,7 +92,7 @@ int main()
                     switch(select) {
                         case 1: {
                             //Show data Dokter dan Pasiennya
-                            cout << "~~~~~~~~~~~ List Dokter dan Pasiennya ~~~~~~~~~~" << endl;
+                            cout << "~~~~~~~~~~~~~~~~ List Dokter dan Pasiennya ~~~~~~~~~~" << endl;
                             showDokterPasienBerelasi(LD);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
