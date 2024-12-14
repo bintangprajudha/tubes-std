@@ -60,7 +60,7 @@ void showDokterPasienBerelasi(ListDokter LD){
         adr_relasi currentRelasi = currentDokter->firstRelasi;
 
         if (currentRelasi == nullptr) {
-            cout << "    |Dokter ini tidak memiliki pasien yang terkait.\n";
+            cout << "    |Dokter ini tidak memiliki pasien yang terkait." << endl << endl;
         } else {
             cout << " Pasien terkait    :\n";
             while (currentRelasi != nullptr) {

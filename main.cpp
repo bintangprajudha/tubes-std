@@ -113,7 +113,7 @@ int main()
                         }
                         case 3: {
                             //show semua data pasien dan dokternya
-                            cout << "~~~~ List Pasien dan Dokternya ~~~~~" << endl;
+                            cout << "~~~~~~~~~~~~~~ List Pasien dan Dokternya ~~~~~~~~~~~~" << endl;
                             showChildParent(LP, LD);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
@@ -166,6 +166,7 @@ int main()
                         case 3: {
                             //cari relasi
                             cout << "~~~~~~~~~~~~~~~~~~~~ Cari Relasi ~~~~~~~~~~~~~~~~~~~~" << endl;
+                            cariRelasi(LD);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
@@ -226,10 +227,7 @@ int main()
                         case 4: {
                             //ganti pasien pada dokter tertentu
                             cout << "~~~~~~~~~ Ganti Pasien pada Dokter Tertentu ~~~~~~~~~" << endl;
-
                             gantiPasienDariDokter(LD, LP);
-
-
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
