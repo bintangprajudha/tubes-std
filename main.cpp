@@ -103,8 +103,9 @@ int main()
                             Pasien P;
                             adr_pasien p;
 
-                            cout << "Masukkan nama pasien: ";
-                            cin >> P.Nama;
+                            cin.ignore();
+                            cout << "Masukkan Nama pasien: ";
+                            getline(cin, P.Nama);
                             cout << "Masukkan NIK pasien: ";
                             cin >> P.NIK;
                             showDokterDariPasien(LD, LP, P.NIK, P.Nama);
@@ -135,8 +136,9 @@ int main()
                             dokter D;
                             adr_dokter d;
 
-                            cout << "Masukkkan nama dokter yang ingin dicari: ";
-                            cin >> D.nama;
+                            cin.ignore();
+                            cout << "Masukkan Nama Dokter: ";
+                            getline(cin, D.nama);
                             cout << "Masukkkan ID dokter yang ingin dicari: ";
                             cin >> D.id;
                             d = FindDokterTanpaSpesialisasi(LD, D.id, D.nama);
@@ -176,8 +178,9 @@ int main()
 
                             dokter D;
                             adr_dokter d;
-                            cout << "Masukkan nama dokter yang ingin dicari: ";
-                            cin >> D.nama;
+                            cin.ignore();
+                            cout << "Masukkan Nama Dokter: ";
+                            getline(cin, D.nama);
                             cout << "Masukkan ID dokter yang ingin dicari: ";
                             cin >> D.id;
 
@@ -202,8 +205,10 @@ int main()
                             cout << "~~~~~~~~~ Hitung Pasien yang dimiliki Dokter ~~~~~~~~" << endl;
                             dokter D;
                             adr_dokter d;
-                            cout << "Masukkan nama dokter: ";
-                            cin >> D.nama;
+                            
+                            cin.ignore();
+                            cout << "Masukkan Nama Dokter: ";
+                            getline(cin, D.nama);
                             cout << "Masukkan ID dokter: ";
                             cin >> D.id;
                             hitungPasienDariDokter(LD, D.id, D.nama);
