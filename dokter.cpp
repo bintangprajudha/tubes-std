@@ -1,5 +1,6 @@
 #include "header.h"
 #include <iostream>
+
 using namespace std;
 
 void createListDokter(ListDokter &LD){
@@ -56,7 +57,7 @@ void DeleteLastDokter(ListDokter &LD, adr_dokter &P){
 
 void showDokter(ListDokter LD) {
     if (LD.first == nullptr) {
-        cout << "List Dokter kosong. Tidak ada data dokter yang dapat ditampilkan." << endl;
+        cout << "List Dokter Kosong." << endl;
     } else {
         cout << "Daftar Dokter:" << endl;
         adr_dokter current = LD.first;
@@ -210,7 +211,7 @@ bool showDokterSpesialisasi(ListDokter LD, string spesialisasi) {
     adr_dokter P = LD.first;
     bool found = false;
 
-    cout << "Dokter dengan spesialisasi " << spesialisasi << ":" << endl;
+    cout << "Dokter dengan Spesialisasi " << spesialisasi << ":" << endl;
     while (P != nullptr) {
         if (P->info.spesialisasi == spesialisasi) {
             cout << "  |Nama\t: " << P->info.nama << endl;
@@ -225,3 +226,4 @@ bool showDokterSpesialisasi(ListDokter LD, string spesialisasi) {
 
     return found;
 }
+

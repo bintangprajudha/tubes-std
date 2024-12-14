@@ -1,6 +1,5 @@
-#include <iostream>
 #include "header.h"
-
+#include <iostream>
 using namespace std;
 
 int main()
@@ -67,8 +66,7 @@ int main()
                         case 2: {
                             // hapus pasien
                             cout << "~~~~~~~~~~~~~~~~~~~~ Hapus Pasien ~~~~~~~~~~~~~~~~~~~" << endl;
-                            adr_pasien p;
-                            deleteFirstPasien(LP, LD, p);
+                            HapusPasien(LP, LD);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
@@ -80,8 +78,6 @@ int main()
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
-                        case 4:
-                            break;
                         case 0:
                             break;
                     }
@@ -122,11 +118,6 @@ int main()
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
-                        case 4:
-                            //tampilkan relasi
-                            break;
-                        case 5:
-                            break;
                         case 0:
                             break;
                     }
@@ -144,9 +135,8 @@ int main()
                             dokter D;
                             adr_dokter d;
 
-                            cin.ignore();
                             cout << "Masukkkan nama dokter yang ingin dicari: ";
-                            getline(cin, D.nama);
+                            cin >> D.nama;
                             cout << "Masukkkan ID dokter yang ingin dicari: ";
                             cin >> D.id;
                             d = FindDokterTanpaSpesialisasi(LD, D.id, D.nama);
@@ -155,7 +145,6 @@ int main()
                             if (d != nullptr) {
                                 cout << "ID dokter: " << d->info.id << endl;
                                 cout << "Nama dokter: " << d->info.nama << endl;
-                                cout << "Spesialisasi: " << d->info.spesialisasi << endl;
                                 cout << "Jenis Kelamin: " << d->info.jk << endl;
                                 cout << "Umur: " << d->info.umur << endl;
                                 cout << "NKD: " << d->info.NKD << endl;
@@ -170,26 +159,7 @@ int main()
                         case 2: {
                             //cari pasien
                             cout << "~~~~~~~~~~~~~~~~~~~~ Cari Pasien ~~~~~~~~~~~~~~~~~~~~" << endl;
-                            Pasien P;
-                            adr_pasien p;
-
-                            cout << "Cari Pasien";
-                            cout << "Masukkan nama pasien yang ingin dicari: ";
-                            cin >> P.Nama;
-                            cout << "Masukkan NIK dokter yang ingin dicari: ";
-                            cin >> P.NIK;
-                            p = FindPasien(LP, P.NIK, P.Nama);
-
-                            cout << p->info.Nama << endl;
-                            cout << p->info.NIK << endl;
-                            cout << p->info.JenisKelamin << endl;
-                            cout << p->info.golonganDarah<< endl;
-                            cout << p->info.berat << endl;
-                            cout << p->info.tinggiBadan << endl;
-                            cout << p->info.TTL << endl;
-                            cout << p->info.usia << endl;
-                            cout << p->info.asuransiKesehatan << endl;
-                            cout << p->info.agama << endl;
+                            CariPasien(LP);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
@@ -214,8 +184,6 @@ int main()
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
-                        case 5:
-                            break;
                         case 0:
                             break;
                     }
@@ -244,12 +212,14 @@ int main()
                         case 2: {
                             //hitung dokter yang dimiliki pasien
                             cout << "~~~~~~~~~ Hitung Dokter yang dimiliki Pasien ~~~~~~~~" << endl;
+                            HitungDokterdariPasien(LD, LP);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
                         case 3: {
                             //hitung pasien yang tidak memiliki dokter
                             cout << "~~~~~~ Hitung Pasien yang Tidak Memiliki Dokter ~~~~~" << endl;
+                            HitungPasientanpaDokter(LD, LP);
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
@@ -263,8 +233,6 @@ int main()
                             cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             break;
                         }
-                        case 5:
-                            break;
                         case 0:
                             break;
                     }
@@ -273,12 +241,11 @@ int main()
                 break;
             }
             default:
+                cout << "Inputan tidak sesuai, Masukkan inputan dengan benar!! " << endl;
                 // jika user input tidak sesuai
-                break;
         }
         select = menu();
     }
     cout << "keluar dari program";
-
     return 0;
 }

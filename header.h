@@ -85,7 +85,7 @@ bool showDokterSpesialisasi(ListDokter LD, string spesialisasi);
 void createListPasien(ListPasien &LP);
 adr_pasien createElmPasien(Pasien C);
 void insertLastPasien(ListPasien &LP, adr_pasien P);
-void deleteFirstPasien(ListPasien &LP, ListDokter &LD, adr_pasien &P);
+void deletePasien(ListPasien &LP, ListDokter &LD, adr_pasien P);
 adr_pasien FindPasien(ListPasien LP, string NIK, string nama);
 void ShowPasien(ListPasien LP);
 void hitungRelasiPasien(ListDokter LD, ListPasien LP, int &jumRelasi);
@@ -115,5 +115,10 @@ void tambahPasienBaru(ListPasien &LP);
 void tambahDokterBaru(ListDokter &LD);
 void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP);
 void gantiPasienDariDokter(ListDokter &LD, ListPasien &LP);
+void HapusPasien(ListPasien &LP, ListDokter &LD);
+void CariPasien(ListPasien LP);
+void HitungPasientanpaDokter(ListDokter LD, ListPasien LP);
+void HitungDokterdariPasien(ListDokter LD, ListPasien LP);
+
 
 #endif // HEADER_H_INCLUDED

@@ -60,7 +60,7 @@ void showDokterPasienBerelasi(ListDokter LD){
         adr_relasi currentRelasi = currentDokter->firstRelasi;
 
         if (currentRelasi == nullptr) {
-            cout << "    Dokter ini tidak memiliki pasien yang terkait.\n";
+            cout << "    |Dokter ini tidak memiliki pasien yang terkait.\n";
         } else {
             cout << " Pasien terkait    :\n";
             while (currentRelasi != nullptr) {
@@ -69,14 +69,13 @@ void showDokterPasienBerelasi(ListDokter LD){
                     cout << "    |Nama Pasien           : " << relatedPasien->info.Nama << endl;
                     cout << "    |NIK                   : " << relatedPasien->info.NIK << endl;
                     cout << "    |Jenis Kelamin         : " << relatedPasien->info.JenisKelamin << endl;
-                    cout << "    |Tempat, Tanggal Lahir : " << relatedPasien->info.TTL << endl;
+                    cout << "    |Tempat, Tanggal Lahir : " << relatedPasien->info.TTL << endl << endl;
 
                 }
                 currentRelasi = currentRelasi->nextRelasi;
             }
         }
         currentDokter = currentDokter->next;
-        cout << endl;
     }
 };
 
@@ -94,7 +93,7 @@ void showChildParent(ListPasien LP, ListDokter LD){
         adr_dokter currentDokter = LD.first;
         bool found = false;
 
-        while (currentDokter != nullptr && !found) {
+        while (currentDokter != nullptr) {
             adr_relasi currentRelasi = currentDokter->firstRelasi;
 
             // perulangan melalui daftar relasi dokter
@@ -108,7 +107,6 @@ void showChildParent(ListPasien LP, ListDokter LD){
                     cout << "    |Jenis Kelamin : " << currentDokter->info.jk << endl << endl;
 
                     found = true;
-                    break;
                 }
                 currentRelasi = currentRelasi->nextRelasi;
             }
@@ -116,7 +114,7 @@ void showChildParent(ListPasien LP, ListDokter LD){
         }
 
         if (!found) {
-            cout << "    Tidak ada dokter yang terhubung dengan pasien ini." << endl << endl;
+            cout << "    |Tidak ada dokter yang terhubung dengan pasien ini." << endl << endl;
         }
 
         currentPasien = currentPasien->next;

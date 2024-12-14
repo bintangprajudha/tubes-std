@@ -13,45 +13,40 @@ adr_pasien createElmPasien(Pasien C){
     return p;
 }
 void insertLastPasien(ListPasien &LP, adr_pasien P){
-    adr_pasien Q;
-    if (LP.first == NULL){
-        LP.first = P;
+    adr_pasien Q, ada;
+    ada = FindPasien(LP, P->info.NIK, P->info.Nama);
+    if (ada != NULL){
+        cout << "Pasien Sudah Ada, Tidak dapat Menambahkan Pasien." << endl;
     } else {
-        Q = LP.first;
-        while (Q->next != NULL) {
-            Q = Q->next;
+        if (LP.first == NULL){
+            LP.first = P;
+        } else {
+            Q = LP.first;
+            while (Q->next != NULL) {
+                Q = Q->next;
+            }
+            Q->next = P;
         }
-        Q->next = P;
     }
 }
-void deleteFirstPasien(ListPasien &LP, ListDokter &LD, adr_pasien &P){
+void deletePasien(ListPasien &LP, ListDokter &LD, adr_pasien P){
     adr_dokter d;
     adr_relasi prevR, nextR;
-    adr_pasien p;
+    adr_pasien prevPasien = LP.first;
 
     if (LP.first == NULL) {
         cout << "List Pasien Kosong" << endl;
     } else {
-        p = LP.first;
         d = LD.first;
         while (d != NULL) {
-            prevR = d->firstRelasi;
-            nextR = d->firstRelasi->nextRelasi;
-            if (d->firstRelasi->firstPasien->info.NIK == p->info.NIK){
-                d->firstRelasi = d->firstRelasi->nextRelasi;
-                prevR->nextRelasi = NULL;
-            }
-            while (nextR != NULL){
-                if (nextR->firstPasien->info.NIK == p->info.NIK) {
-                    prevR->nextRelasi = nextR->nextRelasi;
-                    nextR->nextRelasi = NULL;
-                } else {
-                    prevR = nextR;
-                    nextR = nextR->nextRelasi;
-                }
-            }
+            deleteAfterRelasi(d, P);
             d = d->next;
         }
+        while (prevPasien->next != P) {
+            prevPasien = prevPasien->next;
+        }
+        prevPasien->next = P->next;
+        P->next = NULL;
     }
 }
 adr_pasien FindPasien(ListPasien LP, string NIK, string nama){
@@ -74,7 +69,7 @@ void ShowPasien(ListPasien LP){
     adr_pasien Q;
     Q = LP.first;
     if (LP.first == NULL){
-        cout << "List Pasien Kosong" << endl;
+        cout << "List Pasien Kosong." << endl;
     } else {
         cout << "List Pasien: " << endl;
         while (Q != NULL){
@@ -94,28 +89,43 @@ void ShowPasien(ListPasien LP){
         }
     }
 }
-int hitungRelasiPasien(ListDokter LD, ListPasien LP, string NIK, string nama){
-    int jumRelasi = 0;
+void hitungRelasiPasien(ListDokter LD, ListPasien LP, int &jumRelasi){
+    jumRelasi = 0;
     adr_pasien p;
     adr_dokter d = LD.first;
     adr_relasi r;
+    string temp, nama, NIK;
+
+    cout << "Masukkan Nama Pasien : ";
+    std::getline(std::cin, temp);
+    getline(cin, nama);
+
+    cout << "Masukkan NIK Pasien : ";
+    cin >> NIK;
+    cout << endl;
+
     p = FindPasien(LP, NIK, nama);
+
     if (p != NULL) {
         while (d != NULL) {
             r = d->firstRelasi;
             while (r != NULL) {
                 if (r->firstPasien->info.NIK == NIK && r->firstPasien->info.Nama == nama) {
                     jumRelasi++;
-                } else {
-                    r = r->nextRelasi;
+                    cout << " ID Dokter         : " << d->info.id << endl;
+                    cout << " Nama Dokter       : " << d->info.nama << endl;
+                    cout << " Spesialisasi      : " << d->info.spesialisasi << endl;
+                    cout << " Jenis Kelamin     : " << d->info.jk << endl;
+                    cout << endl;
                 }
-            }
-            d = d->next;
+                r = r->nextRelasi;
+                }
+                d = d->next;
         }
+        p = p->next;
     } else {
         cout << "Pasien Tidak ditemukan, mohon masukkan data dengan benar:)" << endl;
     }
-    return jumRelasi;
 }
 int hitungPasienNoRelasi(ListDokter LD, ListPasien LP){
     int jumNoRelasi = 0;
@@ -138,6 +148,12 @@ int hitungPasienNoRelasi(ListDokter LD, ListPasien LP){
         }
         if (!ketemu) {
             jumNoRelasi++;
+            cout << "Nama Pasien            : " << p->info.Nama << endl;
+            cout << "NIK Pasien             : " << p->info.NIK << endl;
+            cout << "Jenis Kelamin          : " << p->info.JenisKelamin << endl;
+            cout << "Tempat, Tanggal Lahir  : " << p->info.TTL << endl;
+            cout << "Asuransi Kesehatan     : " << p->info.asuransiKesehatan << endl;
+            cout << endl;
         }
         p = p->next;
     }

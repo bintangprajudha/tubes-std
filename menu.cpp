@@ -11,13 +11,13 @@ int menu(){
     cout << "|                                                   |" << endl;
     cout << "| 1. Show List Dokter                               |" << endl;
     cout << "| 2. Show List Pasien                               |" << endl;
-    cout << "| 3. Tambahkan dokter                               |" << endl;
-    cout << "| 4. Tambahkan pasien                               |" << endl;
-    cout << "| 5. Registrasi pasien dengan dokter                |" << endl; //bintang (done)
-    cout << "| 6. Hapus elemen                                   |" << endl;
-    cout << "| 7. Show data                                      |" << endl;
-    cout << "| 8. Cari data                                      |" << endl;
-    cout << "| 9. Menu lainnya                                   |" << endl;
+    cout << "| 3. Tambahkan Dokter                               |" << endl;
+    cout << "| 4. Tambahkan Pasien                               |" << endl;
+    cout << "| 5. Registrasi Pasien dengan Dokter                |" << endl; //bintang (done)
+    cout << "| 6. Hapus Elemen                                   |" << endl;
+    cout << "| 7. Show Data                                      |" << endl;
+    cout << "| 8. Cari Data                                      |" << endl;
+    cout << "| 9. Menu Lainnya                                   |" << endl;
     cout << "| 0. Exit                                           |" << endl;
     cout << "|                                                   |" << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
@@ -32,11 +32,10 @@ int case6() {
 
     cout << "~~~~~~~~~~~~~~~~~~~ Hapus Elemen ~~~~~~~~~~~~~~~~~~~" << endl;
     cout << "|                                                   |" << endl;
-    cout << "| 1. Hapus dokter                                   |" << endl;
-    cout << "| 2. Hapus pasien                                   |" << endl;
-    cout << "| 3. Hapus pasien dari dokter                       |" << endl; //bintang (done)
-    cout << "| 4. Kembali                                        |" << endl;
-    cout << "| 0. Exit                                           |" << endl;
+    cout << "| 1. Hapus Dokter                                   |" << endl;
+    cout << "| 2. Hapus Pasien                                   |" << endl;
+    cout << "| 3. Hapus Pasien dari Dokter                       |" << endl; //bintang (done)
+    cout << "| 0. Kembali                                        |" << endl;
     cout << "|                                                   |" << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
@@ -50,12 +49,10 @@ int case7() {
 
     cout << "~~~~~~~~~~~~~~~~~~~ Tampilkan Data ~~~~~~~~~~~~~~~~~~" << endl;
     cout << "|                                                   |" << endl;
-    cout << "| 1. Tampilkan semua data dokter dan pasiennya      |" << endl; //bintang (done)
-    cout << "| 2. Tampilkan data dokter dari pasien tertentu     |" << endl;
-    cout << "| 3. Tampilkan semua data pasien dan dokternya      |" << endl; //bintang (done)
-    cout << "| 4. Tampilkan relasi                               |" << endl; //bintang
-    cout << "| 5. Kembali                                        |" << endl;
-    cout << "| 0. Exit                                           |" << endl;
+    cout << "| 1. Tampilkan Semua Data Dokter dan Pasiennya      |" << endl; //bintang (done)
+    cout << "| 2. Tampilkan Data Dokter dari Pasien Tertentu     |" << endl;
+    cout << "| 3. Tampilkan Semua Data Pasien dan Dokternya      |" << endl; //bintang (done)
+    cout << "| 0. Kembali                                        |" << endl;
     cout << "|                                                   |" << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
@@ -69,12 +66,11 @@ int case8() {
 
     cout << "~~~~~~~~~~~~~~~~~~~~~ Cari Data ~~~~~~~~~~~~~~~~~~~~~" << endl;
     cout << "|                                                   |" << endl;
-    cout << "| 1. Cari dokter                                    |" << endl;
-    cout << "| 2. Cari pasien                                    |" << endl;
-    cout << "| 3. Cari relasi                                    |" << endl; //bintang
-    cout << "| 4. Cari pasien dari dokter                        |" << endl;
-    cout << "| 5. Kembali                                        |" << endl;
-    cout << "| 0. Exit                                           |" << endl;
+    cout << "| 1. Cari Dokter                                    |" << endl;
+    cout << "| 2. Cari Pasien                                    |" << endl;
+    cout << "| 3. Cari Relasi                                    |" << endl; //bintang
+    cout << "| 4. Cari Pasien dari Dokter                        |" << endl;
+    cout << "| 0. Kembali                                        |" << endl;
     cout << "|                                                   |" << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
@@ -88,12 +84,11 @@ int case9() {
 
     cout << "~~~~~~~~~~~~~~~~~~~~ Menu Lainnya ~~~~~~~~~~~~~~~~~~~" << endl;
     cout << "|                                                   |" << endl;
-    cout << "| 1. Hitung pasien yang dimiliki dokter             |" << endl;
-    cout << "| 2. Hitung dokter yang dimiliki pasien             |" << endl;
-    cout << "| 3. Hitung pasien yang tidak memiliki dokter       |" << endl;
-    cout << "| 4. Ganti pasien pada dokter tertentu              |" << endl; //bintang
-    cout << "| 5. Kembali                                        |" << endl;
-    cout << "| 0. Exit                                           |" << endl;
+    cout << "| 1. Hitung Pasien yang Dimiliki Dokter             |" << endl;
+    cout << "| 2. Hitung Dokter yang Dimiliki Pasien             |" << endl;
+    cout << "| 3. Hitung Pasien yang Tidak memiliki dokter       |" << endl;
+    cout << "| 4. Ganti Pasien pada Dokter Tertentu              |" << endl; //bintang
+    cout << "| 0. Kembali                                        |" << endl;
     cout << "|                                                   |" << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 
@@ -103,28 +98,28 @@ int case9() {
 }
 
 void inputDataDokter(dokter &D) {
-    cout << "ID dokter     : ";
+    cout << "ID Dokter     : ";
     cin >> D.id;
     cin.ignore();
 
-    cout << "Nama dokter   : ";
+    cout << "Nama Dokter   : ";
     getline(cin, D.nama);
 
     cout << "Spesialisasi  : ";
     getline(cin, D.spesialisasi);
 
-    cout << "Jenis kelamin : ";
+    cout << "Jenis Kelamin : ";
     getline(cin, D.jk);
 
     cout << "Umur          : ";
     cin >> D.umur;
     cin.ignore();
 
-    cout << "NKD dokter    : ";
+    cout << "NKD Dokter    : ";
     cin >> D.NKD;
     cin.ignore();
 
-    cout << "nomor telepon : ";
+    cout << "Nomor Telepon : ";
     cin >> D.nomorHP;
     cin.ignore();
 }
@@ -132,28 +127,28 @@ void inputDataDokter(dokter &D) {
 void inputDataPasien(Pasien &P) {
     string askes, temp;
 
-    cout << "Nama pasien          : ";
+    cout << "Nama Pasien          : ";
     std::getline(std::cin, temp);
     getline(cin, P.Nama);
-    cout << "NIK pasien           : ";
+    cout << "NIK Pasien           : ";
     cin >> P.NIK;
-    cout << "Jenis kelamin pasien : ";
+    cout << "Jenis Kelamin Pasien : ";
     std::getline(std::cin, temp);
     getline(cin, P.JenisKelamin);
-    cout << "Jenis golongan darah : ";
+    cout << "Jenis Golongan Darah : ";
     cin >> P.golonganDarah;
-    cout << "Berat badan(kg)      : ";
+    cout << "Berat Badan(kg)      : ";
     cin >> P.berat;
-    cout << "Tinggi badan(cm)     : ";
+    cout << "Tinggi Badan(cm)     : ";
     cin >> P.tinggiBadan;
-    cout << "Tempat, tanggal lahir: ";
+    cout << "Tempat, Tanggal Lahir: ";
     std::getline(std::cin, temp);
     getline(cin, P.TTL);
-    cout << "Usia pasien          : ";
+    cout << "Usia Pasien          : ";
     cin >> P.usia;
-    cout << "Agama pasien         : ";
+    cout << "Agama Pasien         : ";
     cin >> P.agama;
-    cout << "Memiliki asuransi kesehatan(Ya/Tidak)? ";
+    cout << "Memiliki Asuransi Kesehatan(Ya/Tidak)? ";
     cin >> askes;
     P.asuransiKesehatan = (askes == "Ya") ? true : false;
 }
@@ -236,7 +231,7 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
                     cin >> D.id;
                     cout << endl;
                     d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
-                    
+
                     //baru
                     adr_relasi relasi = d->firstRelasi;
                     while(relasi != nullptr){
@@ -246,7 +241,7 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
                         relasi = relasi->nextRelasi;
                     }
                     //baru
-                    
+
                     if(d != nullptr) {
                         insertLastRelasi(d, r);
                         cout << "Registrasi berhasil." << endl << endl;
@@ -301,16 +296,17 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
         }
 
 }
+
 void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP){
     dokter D;
     adr_dokter d;
     string temp;
 
-    cout << "Masukkan nama dokter: ";
+    cout << "Masukkan Nama Dokter: ";
     std::getline(std::cin, temp);
     getline(cin, D.nama);
 
-    cout << "Masukkan ID dokter  : ";
+    cout << "Masukkan ID Dokter  : ";
     cin >> D.id;
     cout << endl;
 
@@ -319,10 +315,10 @@ void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP){
     Pasien P;
     adr_pasien p;
 
-    cout << "Masukkan nama pasien : ";
+    cout << "Masukkan Nama Pasien : ";
     getline(cin, P.Nama);
 
-    cout << "Masukkan NIK pasien  : ";
+    cout << "Masukkan NIK Pasien  : ";
     cin >> P.NIK;
     cout << endl;
 
@@ -331,13 +327,13 @@ void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP){
     adr_relasi r;
     r = deleteAfterRelasi(d, p);
     if (r == nullptr){
-        cout << "Registrasi gagal." << endl << endl;
+        cout << "Registrasi Gagal." << endl << endl;
     } else {
-        cout << "Registrasi berhasil." << endl << endl;
+        cout << "Registrasi Berhasil." << endl << endl;
     }
 
     string lagi;
-    cout << "Hapus lagi? (Ya/Tidak)" << endl;
+    cout << "Hapus Lagi? (Ya/Tidak)" << endl;
     cout << "-> ";
     cin >> lagi;
     cout << endl;
@@ -352,27 +348,27 @@ void gantiPasienDariDokter(ListDokter &LD, ListPasien &LP){
     Pasien Pnew;
     string temp;
 
-    cout << "Masukkan nama dokter      : ";
+    cout << "Masukkan Nama Dokter      : ";
     std::getline(std::cin, temp);
     getline(cin, D.nama);
 
-    cout << "Masukkan ID dokter        : ";
+    cout << "Masukkan ID Dokter        : ";
     cin >> D.id;
     cout << endl;
 
-    cout << "Masukkan nama pasien lama : ";
+    cout << "Masukkan Nama Pasien Lama : ";
     std::getline(std::cin, temp);
     getline(cin, P.Nama);
 
-    cout << "Masukkan NIK pasien lama  : ";
+    cout << "Masukkan NIK Pasien Lama  : ";
     cin >> P.NIK;
     cout << endl;
 
-    cout << "Masukkan nama pasien baru : ";
+    cout << "Masukkan Nama Pasien Baru : ";
     std::getline(std::cin, temp);
     getline(cin, Pnew.Nama);
 
-    cout << "Masukkan NIK pasien baru  : ";
+    cout << "Masukkan NIK Pasien Baru  : ";
     cin >> Pnew.NIK;
     cout << endl;
 
@@ -384,19 +380,76 @@ void gantiPasienDariDokter(ListDokter &LD, ListPasien &LP){
 
     cout << endl;
     if(dokter != nullptr && pasienBaru != nullptr && pasienLama != nullptr){
-        cout << "Registrasi berhasil." << endl << endl;
+        cout << "Registrasi Berhasil." << endl << endl;
     } else {
-        cout << "Registrasi gagal." << endl << endl;
+        cout << "Registrasi Gagal." << endl << endl;
     }
 
     string lagi;
-    cout << "Ganti pasien lagi? (Ya/Tidak)" << endl;
+    cout << "Ganti Pasien Lagi? (Ya/Tidak)" << endl;
     cout << "-> ";
     cin >> lagi;
     cout << endl;
     if(lagi == "Ya"){
         gantiPasienDariDokter(LD, LP);
     }
+}
+
+void HapusPasien(ListPasien &LP, ListDokter &LD){
+    Pasien P;
+    adr_pasien p;
+    string temp;
+
+    cout << "Masukkan Nama Pasien : ";
+    std::getline(std::cin, temp);
+    getline(cin, P.Nama);
+
+    cout << "Masukkan NIK Pasien  : ";
+    cin >> P.NIK;
+    cout << endl;
+
+    p = FindPasien(LP, P.NIK, P.Nama);
+    deletePasien(LP, LD, p);
+    cout << "Pasien Telah Dihapus dari List." << endl;
+}
+
+void CariPasien(ListPasien LP){
+    Pasien P;
+    adr_pasien p;
+    string temp;
+
+    cout << "Masukkan Nama Pasien : ";
+    std::getline(std::cin, temp);
+    getline(cin, P.Nama);
+
+    cout << "Masukkan NIK Pasien : ";
+    cin >> P.NIK;
+    cout << endl;
+
+    p = FindPasien(LP, P.NIK, P.Nama);
+
+    cout << "Nama Pasien            : " << p->info.Nama << endl;
+    cout << "NIK Pasien             : " << p->info.NIK << endl;
+    cout << "Jenis Kelamin          : " <<  p->info.JenisKelamin << endl;
+    cout << "Golongan Darah         : " <<  p->info.golonganDarah<< endl;
+    cout << "Berat Badan            : " <<  p->info.berat << endl;
+    cout << "Tinggi Badan           : " <<  p->info.tinggiBadan << endl;
+    cout << "Tempat, Tanggal Lahir  : " <<  p->info.TTL << endl;
+    cout << "Usia                   : " <<  p->info.usia << endl;
+    cout << "Asuransi Kesehatan     : " <<  p->info.asuransiKesehatan << endl;
+    cout << "Agama                  : " <<  p->info.agama << endl;
+}
+
+void HitungPasientanpaDokter(ListDokter LD, ListPasien LP){
+    int hasil;
+    hasil = hitungPasienNoRelasi(LD, LP);
+    cout << "Jumlah Pasien yang Tidak Memiliki Dokter adalah " << hasil << " Orang" << endl;
+}
+
+void HitungDokterdariPasien(ListDokter LD, ListPasien LP){
+    int hasil;
+    hitungRelasiPasien(LD, LP, hasil);
+    cout << "Jumlah Dokter yang Dimiliki oleh Pasien tersebut adalah " << hasil << endl;
 }
 
 
