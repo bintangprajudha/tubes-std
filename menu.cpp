@@ -236,6 +236,17 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
                     cin >> D.id;
                     cout << endl;
                     d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
+                    
+                    //baru
+                    adr_relasi relasi = d->firstRelasi;
+                    while(relasi != nullptr){
+                        if(relasi->firstPasien == r->firstPasien){
+                            d = nullptr;
+                        }
+                        relasi = relasi->nextRelasi;
+                    }
+                    //baru
+                    
                     if(d != nullptr) {
                         insertLastRelasi(d, r);
                         cout << "Registrasi berhasil." << endl << endl;
@@ -261,6 +272,17 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
                 cout << "Masukkan ID dokter  : ";
                 cin >> D.id;
                 d = FindDokter(LD, D.id, D.nama, D.spesialisasi);
+
+                //baru
+                adr_relasi relasi = d->firstRelasi;
+                while(relasi != nullptr){
+                    if(relasi->firstPasien == r->firstPasien){
+                        d = nullptr;
+                    }
+                    relasi = relasi->nextRelasi;
+                }
+                //baru
+
                 if(d != nullptr) {
                     insertLastRelasi(d, r);
                     cout << "Registrasi berhasil." << endl << endl;
@@ -279,7 +301,6 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
         }
 
 }
-
 void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP){
     dokter D;
     adr_dokter d;
