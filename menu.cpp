@@ -179,6 +179,7 @@ void tambahPasienBaru(ListPasien &LP){
     p = createElmPasien(P);
     insertLastPasien(LP, p);
     cout << endl;
+
     cout << "Tambah Pasien Baru Lagi(Ya/Tidak)? ";
     cin >> tambah;
     cout << endl;
@@ -212,7 +213,10 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
             cout << "-> ";
             cin >> pilih;
             if(pilih == "Ya") {
-                tambahPasienBaru(LP);
+                inputDataPasien(P);
+                p = createElmPasien(P);
+                insertLastPasien(LP, p);
+                cout << endl;
 
                 r = createElmRelasi(p);
 
