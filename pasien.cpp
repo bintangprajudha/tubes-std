@@ -16,7 +16,9 @@ void insertLastPasien(ListPasien &LP, adr_pasien P){
     adr_pasien Q, ada;
     ada = FindPasien(LP, P->info.NIK, P->info.Nama);
     if (ada != NULL){
-        cout << "Pasien Sudah Ada, Tidak dapat Menambahkan Pasien." << endl;
+        cout << endl;
+        cout << "NIK pasien sudah terdaftar." << endl;
+        cout << "Silahkan gunakan NIK yang lain." << endl;
     } else {
         if (LP.first == NULL){
             LP.first = P;
@@ -54,7 +56,7 @@ adr_pasien FindPasien(ListPasien LP, string NIK, string nama){
     bool ketemu = false;
     Q = LP.first;
     while (Q != NULL && !ketemu){
-        if (Q->info.NIK == NIK && Q->info.Nama == nama) {
+        if (Q->info.NIK == NIK) {
             ketemu = true;
             return Q;
         } else {

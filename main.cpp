@@ -147,6 +147,7 @@ int main()
                             cout << " " << endl;
 
                             if (d != nullptr) {
+                                cout << "Dokter Ditemukan" << endl;
                                 cout << "ID dokter: " << d->info.id << endl;
                                 cout << "Nama dokter: " << d->info.nama << endl;
                                 cout << "Spesialisasi: " << d->info.spesialisasi << endl;
@@ -156,7 +157,10 @@ int main()
                                 cout << "Nomor telepon: " << d->info.nomorHP << endl;
                                 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             }else {
-                                cout << "Dokter dengan nama: " << D.nama << ", " << "dan ID: " << D.id << ", tidak ditemukan." << endl;
+                                cout << "Dokter tidak ditemukan" << endl;
+                                cout << "Dokter dengan nama: " << D.nama << endl;
+                                cout << "Dokter dengan ID  : " << D.id << endl;
+                                cout << "Tidak ditemukan." << endl << endl;
                                 cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                             }
                             break;

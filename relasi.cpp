@@ -97,6 +97,7 @@ void showChildParent(ListPasien LP, ListDokter LD){
         cout << " NIK                  : " << currentPasien->info.NIK << endl;
         cout << " Tempat, Tanggal Lahir: " << currentPasien->info.TTL << endl;
         cout << " Jenis Kelamin        : " << currentPasien->info.JenisKelamin << endl;
+        cout << " Dokter Terkait:\n";
 
         // Temukan dokter melalui daftar relasi di ListDokter
         adr_dokter currentDokter = LD.first;
@@ -109,7 +110,6 @@ void showChildParent(ListPasien LP, ListDokter LD){
 
             while (currentRelasi != nullptr) {
                 if (currentRelasi->firstPasien == currentPasien) {
-                    cout << " Dokter Terkait:\n";
                     cout << "    |ID Dokter     : " << currentDokter->info.id << endl;
                     cout << "    |Nama Dokter   : " << currentDokter->info.nama << endl;
                     cout << "    |Spesialisasi  : " << currentDokter->info.spesialisasi << endl;

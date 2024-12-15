@@ -21,7 +21,9 @@ void insertLastDokter(ListDokter &LD, adr_dokter p) {
     adr_dokter current = LD.first;
     while (current != NULL) {
         if (current->info.id == p->info.id) {
-            cout << "ID dokter sudah terdaftar. Silahkan gunakan ID yang lain." << endl;
+            cout << endl;
+            cout << "ID dokter sudah terdaftar." << endl;
+            cout << "Silahkan gunakan ID yang lain." << endl;
             return;
         }
         current = current->next;
@@ -89,28 +91,24 @@ void showDokter(ListDokter LD) {
 adr_dokter FindDokter(ListDokter LD, string id, string nama, string spesialisasi){
     adr_dokter p = LD.first;
     while (p != NULL) {
-        if (p->info.id == id && p->info.nama == nama && p->info.spesialisasi == spesialisasi) {
-            cout << "Dokter Ditemukan" << endl;
+        if (p->info.id == id && p->info.spesialisasi == spesialisasi) {
             return p;
         }else {
             p = p->next;
         }
     }
-    cout << "Dokter tidak ditemukan" << endl;
     return NULL;
 }
 
 adr_dokter FindDokterTanpaSpesialisasi(ListDokter LD, string id, string nama){
     adr_dokter p = LD.first;
     while (p != NULL) {
-        if (p->info.id == id && p->info.nama == nama) {
-            cout << "Dokter Ditemukan" << endl;
+        if (p->info.id == id) {
             return p;
         }else {
             p = p->next;
         }
     }
-    cout << "Dokter tidak ditemukan" << endl;
     return NULL;
 }
 

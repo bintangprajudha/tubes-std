@@ -204,7 +204,7 @@ void regitrasiPasien(ListDokter &LD, ListPasien &LP){
         getline(cin, P.Nama);
         cout << "Masukkan NIK pasien : ";
         cin >> P.NIK;
-        cout << endl;
+
         p = FindPasien(LP, P.NIK, P.Nama);
         cout << endl;
 
@@ -381,8 +381,6 @@ void gantiPasienDariDokter(ListDokter &LD, ListPasien &LP){
     adr_dokter dokter = FindDokterTanpaSpesialisasi(LD, D.id, D.nama);
     adr_pasien pasienLama = FindPasien(LP, P.NIK, P.Nama);
     adr_pasien pasienBaru = FindPasien(LP, Pnew.NIK, Pnew.Nama);
-
-    cout << endl;
 
     if(dokter != nullptr && pasienBaru != nullptr && pasienLama != nullptr){
         editRelasiGantiPasien(LD, LP, dokter, pasienLama, pasienBaru);
