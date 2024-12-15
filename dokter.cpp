@@ -121,7 +121,7 @@ void showPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter) {
         return;
     }
     cout << " " << endl;
-    cout << "Data pasien dari dokter: " << dokter->info.nama << endl;
+    cout << "Data pasien dari: " << dokter->info.nama << endl;
     cout << "Spesialisasi: " << dokter->info.spesialisasi << endl;
     cout << "=========================================" << endl;
 
@@ -191,12 +191,12 @@ int hitungPasienDariDokter(ListDokter LD, string id_dokter, string nama_dokter) 
     adr_relasi currentRelasi = dokter->firstRelasi;
 
     if (currentRelasi == nullptr) {
-        cout << "Dokter " << nama_dokter << " belum memiliki pasien.\n";
+        cout << nama_dokter << " belum memiliki pasien.\n";
         return jumlahPasien;
     }
     cout << " " << endl;
     cout << "=================================================================" << endl;
-    cout << "Daftar pasien untuk dokter " << nama_dokter << " : " << endl;
+    cout << "Daftar pasien untuk " << nama_dokter << " : " << endl;
     while (currentRelasi != nullptr) {
         adr_pasien pasien = currentRelasi->firstPasien;
         if (pasien != nullptr) {
@@ -231,6 +231,5 @@ bool showDokterSpesialisasi(ListDokter LD, string spesialisasi) {
     if (!found) {
         cout << "Tidak ada dokter dengan spesialisasi tersebut." << endl << endl;
     }
-
     return found;
 }
