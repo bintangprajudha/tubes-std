@@ -119,6 +119,6 @@ void HapusPasien(ListPasien &LP, ListDokter &LD);
 void CariPasien(ListPasien LP);
 void HitungPasientanpaDokter(ListDokter LD, ListPasien LP);
 void HitungDokterdariPasien(ListDokter LD, ListPasien LP);
-
+void cariRelasi(ListDokter &LD);
 
 #endif // HEADER_H_INCLUDED

@@ -56,13 +56,11 @@ adr_pasien FindPasien(ListPasien LP, string NIK, string nama){
     while (Q != NULL && !ketemu){
         if (Q->info.NIK == NIK && Q->info.Nama == nama) {
             ketemu = true;
-            cout << "Pasien Ditemukan" << endl;
             return Q;
         } else {
             Q = Q->next;
         }
     }
-    cout << "Pasien Tidak ditemukan" << endl;
     return NULL;
 }
 void ShowPasien(ListPasien LP){

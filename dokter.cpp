@@ -226,4 +226,3 @@ bool showDokterSpesialisasi(ListDokter LD, string spesialisasi) {
 
     return found;
 }
-

@@ -1,5 +1,7 @@
-#include "header.h"
 #include <iostream>
+#include "header.h"
+using namespace std;
+
 using namespace std;
 
 int main()
@@ -205,7 +207,7 @@ int main()
                             cout << "~~~~~~~~~ Hitung Pasien yang dimiliki Dokter ~~~~~~~~" << endl;
                             dokter D;
                             adr_dokter d;
-                            
+
                             cin.ignore();
                             cout << "Masukkan Nama Dokter: ";
                             getline(cin, D.nama);

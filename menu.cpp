@@ -431,17 +431,21 @@ void CariPasien(ListPasien LP){
     cout << endl;
 
     p = FindPasien(LP, P.NIK, P.Nama);
-
-    cout << "Nama Pasien            : " << p->info.Nama << endl;
-    cout << "NIK Pasien             : " << p->info.NIK << endl;
-    cout << "Jenis Kelamin          : " <<  p->info.JenisKelamin << endl;
-    cout << "Golongan Darah         : " <<  p->info.golonganDarah<< endl;
-    cout << "Berat Badan            : " <<  p->info.berat << endl;
-    cout << "Tinggi Badan           : " <<  p->info.tinggiBadan << endl;
-    cout << "Tempat, Tanggal Lahir  : " <<  p->info.TTL << endl;
-    cout << "Usia                   : " <<  p->info.usia << endl;
-    cout << "Asuransi Kesehatan     : " <<  p->info.asuransiKesehatan << endl;
-    cout << "Agama                  : " <<  p->info.agama << endl;
+    if (p != NULL){
+        cout << "Pasien Ditemukan" << endl;
+        cout << "Nama Pasien            : " << p->info.Nama << endl;
+        cout << "NIK Pasien             : " << p->info.NIK << endl;
+        cout << "Jenis Kelamin          : " <<  p->info.JenisKelamin << endl;
+        cout << "Golongan Darah         : " <<  p->info.golonganDarah<< endl;
+        cout << "Berat Badan            : " <<  p->info.berat << endl;
+        cout << "Tinggi Badan           : " <<  p->info.tinggiBadan << endl;
+        cout << "Tempat, Tanggal Lahir  : " <<  p->info.TTL << endl;
+        cout << "Usia                   : " <<  p->info.usia << endl;
+        cout << "Asuransi Kesehatan     : " <<  p->info.asuransiKesehatan << endl;
+        cout << "Agama                  : " <<  p->info.agama << endl;
+    } else {
+        cout << "Pasien Tidak ditemukan" << endl;
+    }
 }
 
 void HitungPasientanpaDokter(ListDokter LD, ListPasien LP){
