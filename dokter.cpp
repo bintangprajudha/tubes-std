@@ -17,11 +17,19 @@ adr_dokter createElmDokter(dokter D){
     return p;
 }
 
-void insertLastDokter(ListDokter &LD, adr_dokter p){
-    if (LD.first == NULL){
+void insertLastDokter(ListDokter &LD, adr_dokter p) {
+    adr_dokter current = LD.first;
+    while (current != NULL) {
+        if (current->info.id == p->info.id) {
+            cout << "ID dokter sudah terdaftar. Silahkan gunakan ID yang lain." << endl;
+            return;
+        }
+        current = current->next;
+    }
+    if (LD.first == NULL) {
         LD.first = p;
         LD.last = p;
-    }else {
+    } else {
         p->prev = LD.last;
         LD.last->next = p;
         LD.last = p;
