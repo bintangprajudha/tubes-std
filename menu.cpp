@@ -320,6 +320,7 @@ void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP){
     adr_pasien p;
 
     cout << "Masukkan Nama Pasien : ";
+    std::getline(std::cin, temp);
     getline(cin, P.Nama);
 
     cout << "Masukkan NIK Pasien  : ";
@@ -328,11 +329,12 @@ void hapusPasienDariDokter(ListDokter &LD, ListPasien &LP){
 
     p = FindPasien(LP, P.NIK, P.Nama);
 
-    adr_relasi r;
-    r = deleteAfterRelasi(d, p);
-    if (r == nullptr){
-        cout << "Hapus pasien Gagal." << endl << endl;
+    if (d == nullptr || p == nullptr){
+        cout << "Hapus pasien gagal." << endl;
+        cout << "Dokter atau pasien tidak ditemukan." << endl << endl;
     } else {
+        adr_relasi r;
+        r = deleteAfterRelasi(d, p);
         cout << "Hapus pasien Berhasil." << endl << endl;
     }
 
@@ -380,10 +382,10 @@ void gantiPasienDariDokter(ListDokter &LD, ListPasien &LP){
     adr_pasien pasienLama = FindPasien(LP, P.NIK, P.Nama);
     adr_pasien pasienBaru = FindPasien(LP, Pnew.NIK, Pnew.Nama);
 
-    editRelasiGantiPasien(LD, LP, dokter, pasienLama, pasienBaru);
-
     cout << endl;
+
     if(dokter != nullptr && pasienBaru != nullptr && pasienLama != nullptr){
+        editRelasiGantiPasien(LD, LP, dokter, pasienLama, pasienBaru);
         cout << "Ganti pasien Berhasil." << endl << endl;
     } else {
         cout << "Ganti pasien Gagal." << endl << endl;

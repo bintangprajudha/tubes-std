@@ -49,7 +49,10 @@ adr_relasi findRelasi(ListDokter &LD, string id_dokter, string nik_pasien){
 }
 
 void showDokterPasienBerelasi(ListDokter LD){
-    adr_dokter currentDokter = LD.first;
+    if (LD.first == nullptr) {
+        cout << "List Dokter Kosong." << endl;
+    } else {
+        adr_dokter currentDokter = LD.first;
 
     while (currentDokter != nullptr) {
         cout << " ID Dokter         : " << currentDokter->info.id << endl;
@@ -77,10 +80,16 @@ void showDokterPasienBerelasi(ListDokter LD){
         }
         currentDokter = currentDokter->next;
     }
+    }
+
+
 };
 
 void showChildParent(ListPasien LP, ListDokter LD){
-    adr_pasien currentPasien = LP.first;
+    if (LP.first == NULL){
+        cout << "List Pasien Kosong." << endl;
+    } else {
+        adr_pasien currentPasien = LP.first;
 
     // Iterasi melalui daftar pasien
     while (currentPasien != nullptr) {
@@ -119,6 +128,9 @@ void showChildParent(ListPasien LP, ListDokter LD){
 
         currentPasien = currentPasien->next;
     }
+    }
+
+
 };
 
 adr_relasi deleteAfterRelasi(adr_dokter &dokter, adr_pasien pasienLama){
