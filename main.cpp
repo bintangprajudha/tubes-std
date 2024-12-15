@@ -149,6 +149,7 @@ int main()
                             if (d != nullptr) {
                                 cout << "ID dokter: " << d->info.id << endl;
                                 cout << "Nama dokter: " << d->info.nama << endl;
+                                cout << "Spesialisasi: " << d->info.spesialisasi << endl;
                                 cout << "Jenis Kelamin: " << d->info.jk << endl;
                                 cout << "Umur: " << d->info.umur << endl;
                                 cout << "NKD: " << d->info.NKD << endl;
