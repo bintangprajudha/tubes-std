@@ -416,7 +416,14 @@ void HapusPasien(ListPasien &LP, ListDokter &LD){
 
     p = FindPasien(LP, P.NIK, P.Nama);
     deletePasien(LP, LD, p);
-    cout << "Pasien Telah Dihapus dari List." << endl;
+
+    if(p == nullptr){
+        cout << "Pasien tidak ada dalam list." << endl;
+    } else {
+        deletePasien(LP, LD, p);
+        cout << "Pasien Telah Dihapus dari List." << endl;
+    }
+
 }
 
 void CariPasien(ListPasien LP){
